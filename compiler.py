@@ -39,6 +39,7 @@ if __name__ == '__main__':
         'component.js',
         'components/form.js',
         'components/link.js',
+        'components/counter.js',
         'reactive.js',
     ]
     compiler = JSCompiler(js_files, 'reactive.min.js')

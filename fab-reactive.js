@@ -153,6 +153,7 @@ class ReactiveLink extends ReactiveCoreComponent {
       .then(html => {
         container.innerHTML = html;
 
+        // Execute scripts in the global scope
         const scripts = container.querySelectorAll('script');
         scripts.forEach(script => {
           if (script.innerText) {
@@ -165,6 +166,12 @@ class ReactiveLink extends ReactiveCoreComponent {
             });
           }
         });
+
+        // Set title
+        const title = container.querySelector('title');
+        if (title) {
+          document.title = title.innerText;
+        }
       })
       .then(() => {
         if (!containerId) {

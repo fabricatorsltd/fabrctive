@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>reactive.js test</title>
+</head>
+
+<body>
+
+    <button counter-react="my-counter" counter-react-initial-value="5">5</button>
+
+    <script src="debugger.js"></script>
+    <script src="core.js"></script>
+    <script src="component.js"></script>
+    <script src="components/form.js"></script>
+    <script src="components/link.js"></script>
+    <script src="components/counter.js"></script>
+    <script src="reactive.js"></script>
+
+    <script>
+        reactive = new Reactive();
+        reactive.init();
+    </script>
+</body>
+
+</html>

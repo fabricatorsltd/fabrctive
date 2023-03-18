@@ -135,14 +135,18 @@ class ReactiveLink extends ReactiveCoreComponent {
     this.selector = '[link-react]';
     this.eventMap = {
       click: 'onClick',
-      mouseover: 'onMouseOver'
+      // mouseover: 'onMouseOver'
     };
   }
 
   onClick(event) {
     event.preventDefault();
-    const source = event.target.getAttribute('href');
-    const containerId = event.target.getAttribute('link-react-dom');
+    let source = "";
+    let target = event.target.closest('[link-react]');
+    if (target) {
+      source = target.hasAttribute('href') ? target.getAttribute('href') : target.getAttribute('link-react-target');
+    }
+    const containerId = target ? target.getAttribute('link-react-dom') : null;
     const container = containerId ? document.getElementById(containerId) : document.body;
 
     this.fetchContent(source)

@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="/docs/fabr-logo-color.svg" height="120">
-  <h1 align="center">fabrctive</h1>
+  <img src="/docs/fabr-logo-color.svg" height="54">
   <p align="center">fabrctive is a small library that allows you to create reactive web applications in a declarative way.</p>
 </div>
 

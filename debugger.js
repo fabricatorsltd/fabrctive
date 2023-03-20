@@ -1,14 +1,21 @@
 class ReactiveDebugger {
   constructor() {
     this.component = null;
+    this.helper = null;
     this.logPrefix = "🪲";
     this.benchmarks = {};
   }
 
-  register(component) {
+  registerComponent(component) {
     this.component = component;
     this.logPrefix = `${this.logPrefix} <🧩:${component.componentName}:${component.componentUID}>`;
     this.log("Registered.");
+  }
+
+  registerHelper(helper) {
+    this.helper = helper;
+    this.logPrefix = `${this.logPrefix} <🧰:${helper.helperName}:${helper.helperUID}>`;
+    this.log(`Registered by {@@}`, helper.component.reprX);
   }
 
   start_bench(component) {
@@ -45,35 +52,38 @@ class ReactiveDebugger {
     console.groupEnd();
   }
 
-  log(message) {
-    console.log(
-      `%c${this.logPrefix} %c${message}`,
-      "color: #6c63ff; font-weight: bold",
-      "color: #000000; font-weight: normal"
-    );
+  logger(message, reprX = undefined, logColor = "#6c63ff") {
+    if (reprX) {
+      message = message.replace("{@@}", `%c${reprX[0]}%c`);
+      console.log(
+        `%c${this.logPrefix} %c${message}`,
+        `color: ${logColor}; font-weight: bold`,
+        "color: #000000; font-weight: normal",
+        reprX[1],
+        "color: #000000; font-weight: normal"
+      );
+    } else {
+      console.log(
+        `%c${this.logPrefix} %c${message}`,
+        `color: ${logColor}; font-weight: bold`,
+        "color: #000000; font-weight: normal"
+      );
+    }
   }
 
-  error(message) {
-    console.error(
-      `%c${this.logPrefix} %c${message}`,
-      "color: #ef1616; font-weight: bold",
-      "color: #000000; font-weight: normal"
-    );
+  log(message, reprX = undefined) {
+    this.logger(message, reprX, "#6c63ff");
   }
 
-  warn(message) {
-    console.warn(
-      `%c${this.logPrefix} %c${message}`,
-      "color: #fd9f41; font-weight: bold",
-      "color: #000000; font-weight: normal"
-    );
+  error(message, reprX = undefined) {
+    this.logger(message, reprX, "#ef1616");
   }
 
-  success(message) {
-    console.log(
-      `%c${this.logPrefix} %c${message}`,
-      "color: #00b894; font-weight: bold",
-      "color: #000000; font-weight: normal"
-    );
+  warn(message, reprX = undefined) {
+    this.logger(message, reprX, "#fd9f41");
+  }
+
+  success(message, reprX = undefined) {
+    this.logger(message, reprX, "#00b894");
   }
 }

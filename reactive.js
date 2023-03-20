@@ -1,6 +1,7 @@
 class Reactive extends ReactiveCore {
   constructor() {
     super();
+    console.log("Reactive initializing");
     this.init();
     console.log("Reactive initialized");
   }

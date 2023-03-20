@@ -1,5 +1,10 @@
-![](/docs/fabr-cover.svg)
-fabr.js is a small library that allows you to create reactive web applications in a declarative way.
+<div align="center">
+  <img src="/docs/fabr-logo-color.svg" height="120">
+  <h1 align="center">fabrctive</h1>
+  <p align="center">fabrctive is a small library that allows you to create reactive web applications in a declarative way.</p>
+</div>
+
+<br/>
 
 ## Building
 To build the library, you need to have Python 3 installed and the [jsmin](https://pypi.org/project/jsmin/)

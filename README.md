@@ -37,8 +37,7 @@ To use the library in development mode, you need to include all the files manual
     <script src="reactive.js"></script>
 
     <script>
-        reactive = new Reactive();
-        reactive.init();
+        new Reactive();
     </script>
 ```
 

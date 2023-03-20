@@ -1,8 +1,8 @@
-class ReactiveLink extends ReactiveCoreComponent {
+class FabrLink extends FabrCoreComponent {
   constructor() {
     super();
-    this.componentName = "ReactiveLink";
-    this.selector = "[link-react]";
+    this.componentName = "FabrLink";
+    this.selector = "[fabr-link]";
     this.eventMap = {
       click: "onClick",
       // mouseover: 'onMouseOver'
@@ -12,13 +12,13 @@ class ReactiveLink extends ReactiveCoreComponent {
   onClick(event) {
     event.preventDefault();
     let source = "";
-    let target = event.target.closest("[link-react]");
+    let target = event.target.closest("[fabr-link]");
     if (target) {
       source = target.hasAttribute("href")
         ? target.getAttribute("href")
-        : target.getAttribute("link-react-target");
+        : target.getAttribute("fabr-link-target");
     }
-    const containerId = target ? target.getAttribute("link-react-dom") : null;
+    const containerId = target ? target.getAttribute("fabr-link-dom") : null;
     const container = containerId
       ? document.getElementById(containerId)
       : document.body;

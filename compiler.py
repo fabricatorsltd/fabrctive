@@ -46,7 +46,7 @@ if __name__ == '__main__':
     ] + list_from_dir("helpers") + [
         'component.js',
     ] + list_from_dir("components") + [
-        'reactive.js',
+        'fabr.js',
     ]
-    compiler = JSCompiler(js_files, 'reactive.min.js')
+    compiler = JSCompiler(js_files, 'fabr.min.js')
     compiler.compile()

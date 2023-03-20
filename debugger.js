@@ -1,4 +1,4 @@
-class ReactiveDebugger {
+class FabrDebugger {
   constructor() {
     this.component = null;
     this.helper = null;

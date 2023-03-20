@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>reactive.js examples</title>
+    <title>fabr.js examples</title>
 </head>
 
 <body>
@@ -12,30 +12,30 @@
 
     <h2>Counters</h2>
 
-    <button counter-react="myCounter1" counter-react-initial-value="0">0</button>
-    <button counter-react="myCounter2" counter-react-initial-value="3">3</button>
-    <button counter-react="myCounter3" counter-react-initial-value="6">6</button>
+    <button fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
+    <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
+    <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
 
     <h2>Tooltips</h2>
 
-    <a href="#" tooltip-react tooltip-react-text="This is a tooltip">Hover me</a>
+    <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
 
     <h2>Notebooks</h2>
 
-    <div notebook-react>
+    <div fabr-notebook>
         <ul>
-            <li notebook-react-item="tab1">Tab 1</li>
-            <li notebook-react-item="tab2">Tab 2</li>
-            <li notebook-react-item="tab3">Tab 3</li>
+            <li fabr-notebook-item="tab1">Tab 1</li>
+            <li fabr-notebook-item="tab2">Tab 2</li>
+            <li fabr-notebook-item="tab3">Tab 3</li>
         </ul>
-        <div notebook-react-content="tab1">Content tab 1</div>
-        <div notebook-react-content="tab2">Content tab 2</div>
-        <div notebook-react-content="tab3">Content tab 3</div>
+        <div fabr-notebook-content="tab1">Content tab 1</div>
+        <div fabr-notebook-content="tab2">Content tab 2</div>
+        <div fabr-notebook-content="tab3">Content tab 3</div>
     </div>
 
     <h2>Tables</h2>
 
-    <table table-react table-react-options="search|sort">
+    <table fabr-table fabr-table-options="search|sort">
         <thead>
             <tr>
                 <th>Name</th>
@@ -74,10 +74,10 @@
     <script src="components/tooltip.js"></script>
     <script src="components/notebook.js"></script>
     <script src="components/table.js"></script>
-    <script src="reactive.js"></script>
+    <script src="fabr.js"></script>
 
     <script>
-        new Reactive();
+        new Fabr();
     </script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

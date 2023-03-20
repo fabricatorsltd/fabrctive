@@ -1,7 +1,7 @@
-class ReactiveHelper {
+class FabrHelper {
   constructor() {
     // @@@IF NOT BUILD@@@
-    this.debugger = new ReactiveDebugger();
+    this.debugger = new FabrDebugger();
     // @@@ENDIF@@@
 
     this.helperUID = Math.random().toString(36).substr(2, 9);

@@ -1,4 +1,4 @@
-class ReactiveHelperAnimate extends ReactiveHelper {
+class FabrHelperAnimate extends FabrHelper {
   constructor() {
     super();
     this.helperName = "Animate";

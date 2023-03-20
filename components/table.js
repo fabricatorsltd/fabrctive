@@ -1,12 +1,12 @@
-class ReactiveTable extends ReactiveCoreComponent {
+class FabrTable extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "Table";
-    this.selector = "[table-react]";
+    this.selector = "[fabr-table]";
     this.eventMap = {};
     this.tables = [];
 
-    this.iconHelper = new ReactiveHelperIcon();
+    this.iconHelper = new FabrHelperIcon();
     this.iconHelper.init(this);
     this.iconHelper.setIconsLibraryMaterial();
   }
@@ -20,7 +20,7 @@ class ReactiveTable extends ReactiveCoreComponent {
     this.elements.forEach((table) => {
       this.tables.push({
         element: table,
-        options: table.getAttribute("table-react-options").split("|"),
+        options: table.getAttribute("fabr-table-options").split("|"),
         activeElement: null,
       });
     });
@@ -32,7 +32,7 @@ class ReactiveTable extends ReactiveCoreComponent {
 
   renderTable(table) {
     const wrapper = document.createElement("div");
-    wrapper.classList.add("table-react-wrapper");
+    wrapper.classList.add("fabr-table-wrapper");
     table.element.parentNode.insertBefore(wrapper, table.element);
     wrapper.appendChild(table.element);
     table.activeElement = wrapper;
@@ -50,7 +50,7 @@ class ReactiveTable extends ReactiveCoreComponent {
     const search = document.createElement("input");
     search.setAttribute("type", "text");
     search.setAttribute("placeholder", "Search...");
-    search.setAttribute("table-react-search", "");
+    search.setAttribute("fabr-table-search", "");
     table.activeElement.insertBefore(search, table.element);
     this.addInternalEventListener(search, "keyup", "onKeyup", table);
   }
@@ -62,17 +62,17 @@ class ReactiveTable extends ReactiveCoreComponent {
       th.sortIcon = icon;
       th.appendChild(icon);
       this.addInternalEventListener(th, "click", "onClick", table);
-      th.setAttribute("table-react-sort", "");
+      th.setAttribute("fabr-table-sort", "");
     });
   }
 
   sortTable(th, table) {
-    const isAsc = th.getAttribute("table-react-sort") === "asc";
+    const isAsc = th.getAttribute("fabr-table-sort") === "asc";
 
-    const ths = table.element.querySelectorAll("[table-react-sort]");
+    const ths = table.element.querySelectorAll("[fabr-table-sort]");
     ths.forEach((th) => {
       th.sortIcon.changeIcon("unfold_more");
-      th.setAttribute("table-react-sort", "");
+      th.setAttribute("fabr-table-sort", "");
     });
 
     const tbody = table.element.querySelector("tbody");
@@ -84,7 +84,7 @@ class ReactiveTable extends ReactiveCoreComponent {
       return isAsc ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
     });
 
-    th.setAttribute("table-react-sort", isAsc ? "desc" : "asc");
+    th.setAttribute("fabr-table-sort", isAsc ? "desc" : "asc");
     th.sortIcon.changeIcon(isAsc ? "keyboard_arrow_down" : "keyboard_arrow_up");
 
     while (tbody.firstChild) {
@@ -95,14 +95,14 @@ class ReactiveTable extends ReactiveCoreComponent {
   }
 
   onClick(event, table) {
-    const target = event.target.closest("[table-react-sort]");
+    const target = event.target.closest("[fabr-table-sort]");
     if (target) {
       this.sortTable(target, table);
     }
   }
 
   onKeyup(event, table) {
-    const target = event.target.closest("[table-react-search]");
+    const target = event.target.closest("[fabr-table-search]");
     if (target) {
       this.searchTable(target, table);
     }

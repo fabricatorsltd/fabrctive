@@ -1,9 +1,9 @@
-class Reactive extends ReactiveCore {
+class Fabr extends FabrCore {
   constructor() {
     super();
-    console.log("Reactive initializing");
+    console.log("Fabr initializing");
     this.init();
-    console.log("Reactive initialized");
+    console.log("Fabr initialized");
   }
 
   init() {
@@ -16,32 +16,32 @@ class Reactive extends ReactiveCore {
   }
 
   initForms() {
-    const forms = new ReactiveForm();
+    const forms = new FabrForm();
     forms.init();
   }
 
   initLinks() {
-    const links = new ReactiveLink();
+    const links = new FabrLink();
     links.init();
   }
 
   initCounters() {
-    const counters = new ReactiveCounter();
+    const counters = new FabrCounter();
     counters.init();
   }
 
   initTooltips() {
-    const tooltips = new ReactiveTooltip();
+    const tooltips = new FabrTooltip();
     tooltips.init();
   }
 
   initNotebooks() {
-    const notebooks = new ReactiveNotebook();
+    const notebooks = new FabrNotebook();
     notebooks.init();
   }
 
   initTables() {
-    const tables = new ReactiveTable();
+    const tables = new FabrTable();
     tables.init();
   }
 }

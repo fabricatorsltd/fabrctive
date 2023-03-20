@@ -1,13 +1,13 @@
-class ReactiveNotebook extends ReactiveCoreComponent {
+class FabrNotebook extends FabrCoreComponent {
   constructor() {
     super();
-    this.componentName = "ReactiveNotebook";
-    this.selector = "[notebook-react]";
+    this.componentName = "FabrNotebook";
+    this.selector = "[fabr-notebook]";
     this.eventMap = {
       click: "onClick",
     };
     this.tabs = {};
-    this.animateHelper = new ReactiveHelperAnimate();
+    this.animateHelper = new FabrHelperAnimate();
     this.animateHelper.init(this);
   }
 
@@ -18,12 +18,12 @@ class ReactiveNotebook extends ReactiveCoreComponent {
 
   render() {
     const tabs = document.querySelector(this.selector);
-    const tabItems = tabs.querySelectorAll("[notebook-react-item]");
+    const tabItems = tabs.querySelectorAll("[fabr-notebook-item]");
 
     tabItems.forEach((tabItem) => {
-      const tabId = tabItem.getAttribute("notebook-react-item");
+      const tabId = tabItem.getAttribute("fabr-notebook-item");
       const tabContent = document.querySelector(
-        `[notebook-react-content="${tabId}"]`
+        `[fabr-notebook-content="${tabId}"]`
       );
       tabContent.style.display = "none";
 
@@ -40,10 +40,10 @@ class ReactiveNotebook extends ReactiveCoreComponent {
 
   onClick(event) {
     event.preventDefault();
-    const target = event.target.closest("[notebook-react-item]");
+    const target = event.target.closest("[fabr-notebook-item]");
 
     if (target) {
-      const tabId = target.getAttribute("notebook-react-item");
+      const tabId = target.getAttribute("fabr-notebook-item");
       this.activateTab(tabId);
     }
   }

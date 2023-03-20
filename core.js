@@ -1,4 +1,4 @@
-class ReactiveCore {
+class FabrCore {
   fetchContent(sourceUrl) {
     return fetch(sourceUrl)
       .then((response) => response.text())

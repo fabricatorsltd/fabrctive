@@ -1,8 +1,8 @@
-class ReactiveForm extends ReactiveCoreComponent {
+class FabrForm extends FabrCoreComponent {
   constructor() {
     super();
-    this.componentName = "ReactiveForm";
-    this.selector = "[form-react]";
+    this.componentName = "FabrForm";
+    this.selector = "[fabr-form]";
     this.eventMap = {
       submit: "onSubmit",
     };

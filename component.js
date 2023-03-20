@@ -1,9 +1,9 @@
-class ReactiveCoreComponent extends ReactiveCore {
+class FabrCoreComponent extends FabrCore {
   constructor() {
     super();
 
     // @@@IF NOT BUILD@@@
-    this.debugger = new ReactiveDebugger();
+    this.debugger = new FabrDebugger();
     // @@@ENDIF@@@
 
     this.componentUID = Math.random().toString(36).substr(2, 9);

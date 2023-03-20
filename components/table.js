@@ -5,6 +5,10 @@ class ReactiveTable extends ReactiveCoreComponent {
     this.selector = "[table-react]";
     this.eventMap = {};
     this.tables = [];
+
+    this.iconHelper = new ReactiveHelperIcon();
+    this.iconHelper.init(this);
+    this.iconHelper.setIconsLibraryMaterial();
   }
 
   init() {
@@ -54,16 +58,26 @@ class ReactiveTable extends ReactiveCoreComponent {
   renderSort(table) {
     const ths = table.element.querySelectorAll("th");
     ths.forEach((th) => {
+      const icon = this.iconHelper.new("unfold_more");
+      th.sortIcon = icon;
+      th.appendChild(icon);
       this.addInternalEventListener(th, "click", "onClick", table);
       th.setAttribute("table-react-sort", "");
     });
   }
 
   sortTable(th, table) {
+    const isAsc = th.getAttribute("table-react-sort") === "asc";
+
+    const ths = table.element.querySelectorAll("[table-react-sort]");
+    ths.forEach((th) => {
+      th.sortIcon.changeIcon("unfold_more");
+      th.setAttribute("table-react-sort", "");
+    });
+
     const tbody = table.element.querySelector("tbody");
     const rows = tbody.querySelectorAll("tr");
     const index = th.cellIndex;
-    const isAsc = th.getAttribute("table-react-sort") === "asc";
     const sortedRows = Array.from(rows).sort((rowA, rowB) => {
       const cellA = rowA.cells[index].textContent;
       const cellB = rowB.cells[index].textContent;
@@ -71,6 +85,7 @@ class ReactiveTable extends ReactiveCoreComponent {
     });
 
     th.setAttribute("table-react-sort", isAsc ? "desc" : "asc");
+    th.sortIcon.changeIcon(isAsc ? "keyboard_arrow_down" : "keyboard_arrow_up");
 
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);

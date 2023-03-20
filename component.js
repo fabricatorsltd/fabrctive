@@ -37,6 +37,11 @@ class ReactiveCoreComponent extends ReactiveCore {
       // @@@ENDIF@@@
       this.elements.forEach((element) => {
         element.addEventListener(event, (e) => {
+          // @@@IF NOT BUILD@@@
+          this.debugger.log(
+            `Event ${e.type} triggered on ${fn} for\n\t\t${e.target.outerHTML}`
+          );
+          // @@@ENDIF@@@
           this[fn](e);
         });
       });

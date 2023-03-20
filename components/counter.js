@@ -12,9 +12,11 @@ class ReactiveCounter extends ReactiveCoreComponent {
   onClick(event) {
     event.preventDefault();
     const target = event.target.closest("[counter-react]");
+
     if (target) {
       const counterId = target.getAttribute("counter-react");
       const counter = this.counters[counterId];
+
       if (counter) {
         counter.value++;
         target.innerText = counter.value;

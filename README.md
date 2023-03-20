@@ -1,4 +1,4 @@
-# fabrctive
+![](/docs/fabr-cover.svg)
 fabr.js is a small library that allows you to create reactive web applications in a declarative way.
 
 ## Building

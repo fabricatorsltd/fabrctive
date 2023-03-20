@@ -5,15 +5,16 @@ import jsmin
 
 class JSCompiler:
 
-    def __init__(self, js_files, output_file):
-        self.js_files = js_files
+    def __init__(self, folder, js_files, output_file):
+        self.folder = folder
+        self.js_files =js_files
         self.output_file = output_file
         self.debug_pattern = ['@@@IF NOT BUILD@@@', '@@@ENDIF@@@']
 
     def compile(self):
         with open(self.output_file, 'w') as outfile:
             for js_file in self.js_files:
-                with open(js_file, 'r') as infile:
+                with open( os.path.join(self.folder, js_file), 'r') as infile:
                     lines = infile.readlines()
 
                     # Skip any lines between the debug patterns
@@ -48,5 +49,5 @@ if __name__ == '__main__':
     ] + list_from_dir("components") + [
         'fabr.js',
     ]
-    compiler = JSCompiler(js_files, 'fabr.min.js')
+    compiler = JSCompiler('src', js_files, 'fabr.min.js')
     compiler.compile()

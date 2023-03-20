@@ -42,10 +42,18 @@ class ReactiveCoreComponent extends ReactiveCore {
   }
 
   initEventListeners() {
+    if (Object.keys(this.eventMap).length === 0) {
+      this.debugger.log(
+        `No event listeners defined for ${this.repr} on ${this.selector}`
+      );
+      return;
+    }
+
     for (let [event, fn] of Object.entries(this.eventMap)) {
       // @@@IF NOT BUILD@@@
       this.debugger.log(`Adding event listener for ${event} on ${fn}`);
       // @@@ENDIF@@@
+
       this.elements.forEach((element) => {
         element.addEventListener(event, (e) => {
           // @@@IF NOT BUILD@@@
@@ -53,9 +61,26 @@ class ReactiveCoreComponent extends ReactiveCore {
             `Event ${e.type} triggered on ${fn} for\n\t\t${e.target.outerHTML}`
           );
           // @@@ENDIF@@@
+
           this[fn](e);
         });
       });
     }
+  }
+
+  addInternalEventListener(element, event, fn, reference = null) {
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(`Adding internal event listener for ${event} on ${fn}`);
+    // @@@ENDIF@@@
+
+    element.addEventListener(event, (e) => {
+      // @@@IF NOT BUILD@@@
+      this.debugger.log(
+        `Event ${e.type} triggered on ${fn} for\n\t\t${e.target.outerHTML}`
+      );
+      // @@@ENDIF@@@
+
+      this[fn](e, reference);
+    });
   }
 }

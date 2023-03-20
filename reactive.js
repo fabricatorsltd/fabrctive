@@ -11,6 +11,8 @@ class Reactive extends ReactiveCore {
     this.initLinks();
     this.initCounters();
     this.initTooltips();
+    this.initNotebooks();
+    this.initTables();
   }
 
   initForms() {
@@ -31,5 +33,15 @@ class Reactive extends ReactiveCore {
   initTooltips() {
     const tooltips = new ReactiveTooltip();
     tooltips.init();
+  }
+
+  initNotebooks() {
+    const notebooks = new ReactiveNotebook();
+    notebooks.init();
+  }
+
+  initTables() {
+    const tables = new ReactiveTable();
+    tables.init();
   }
 }

@@ -20,6 +20,48 @@
 
     <a href="#" tooltip-react tooltip-react-text="This is a tooltip">Hover me</a>
 
+    <h2>Notebooks</h2>
+
+    <div notebook-react>
+        <ul>
+            <li notebook-react-item="tab1">Tab 1</li>
+            <li notebook-react-item="tab2">Tab 2</li>
+            <li notebook-react-item="tab3">Tab 3</li>
+        </ul>
+        <div notebook-react-content="tab1">Content tab 1</div>
+        <div notebook-react-content="tab2">Content tab 2</div>
+        <div notebook-react-content="tab3">Content tab 3</div>
+    </div>
+
+    <h2>Tables</h2>
+
+    <table table-react table-react-options="search|sort">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>20</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td>Mike</td>
+                <td>30</td>
+                <td>London</td>
+            </tr>
+            <tr>
+                <td>Anna</td>
+                <td>25</td>
+                <td>Paris</td>
+            </tr>
+        </tbody>
+    </table>
+
     <script src="debugger.js"></script>
     <script src="core.js"></script>
     <script src="helper.js"></script>
@@ -29,6 +71,8 @@
     <script src="components/link.js"></script>
     <script src="components/counter.js"></script>
     <script src="components/tooltip.js"></script>
+    <script src="components/notebook.js"></script>
+    <script src="components/table.js"></script>
     <script src="reactive.js"></script>
 
     <script>

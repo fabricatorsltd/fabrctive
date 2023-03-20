@@ -10,6 +10,7 @@ class Reactive extends ReactiveCore {
     this.initForms();
     this.initLinks();
     this.initCounters();
+    this.initTooltips();
   }
 
   initForms() {
@@ -25,5 +26,10 @@ class Reactive extends ReactiveCore {
   initCounters() {
     const counters = new ReactiveCounter();
     counters.init();
+  }
+
+  initTooltips() {
+    const tooltips = new ReactiveTooltip();
+    tooltips.init();
   }
 }

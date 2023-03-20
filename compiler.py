@@ -33,13 +33,19 @@ class JSCompiler:
             outfile.write(minified)
 
 
+def list_from_dir(dir):
+    components = []
+    for file in glob.glob(dir+'/*.js'):
+        components.append(file)
+    return components
+
 if __name__ == '__main__':
     js_files = [
         'core.js',
+        'helper.js',
+    ] + list_from_dir("helpers") + [
         'component.js',
-        'components/form.js',
-        'components/link.js',
-        'components/counter.js',
+    ] + list_from_dir("components") + [
         'reactive.js',
     ]
     compiler = JSCompiler(js_files, 'reactive.min.js')

@@ -14,7 +14,7 @@ class ReactiveCoreComponent extends ReactiveCore {
 
   init() {
     // @@@IF NOT BUILD@@@
-    this.debugger.register(this);
+    this.debugger.registerComponent(this);
     this.debugger.start_bench(this);
     // @@@ENDIF@@@
 
@@ -24,6 +24,17 @@ class ReactiveCoreComponent extends ReactiveCore {
     // @@@IF NOT BUILD@@@
     this.debugger.stop_bench(this);
     // @@@ENDIF@@@
+  }
+
+  get repr() {
+    return `<${this.componentName}:${this.componentUID}>`;
+  }
+
+  get reprX() {
+    return [
+      `<${this.componentName}:${this.componentUID}>`,
+      "background: #6c63ff; color: white; border-radius: 3px; padding: 0 3px; font-weight: bold",
+    ];
   }
 
   initElements() {

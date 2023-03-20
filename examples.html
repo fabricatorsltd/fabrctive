@@ -3,12 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>reactive.js test</title>
+    <title>reactive.js examples</title>
 </head>
 
 <body>
 
-    <button counter-react="my-counter" counter-react-initial-value="5">5</button>
+    <h1>Examples</h1>
+
+    <h2>Counters</h2>
+
+    <button counter-react="myCounter1" counter-react-initial-value="0">0</button>
+    <button counter-react="myCounter2" counter-react-initial-value="3">3</button>
+    <button counter-react="myCounter3" counter-react-initial-value="6">6</button>
 
     <script src="debugger.js"></script>
     <script src="core.js"></script>
@@ -19,8 +25,7 @@
     <script src="reactive.js"></script>
 
     <script>
-        reactive = new Reactive();
-        reactive.init();
+        new Reactive();
     </script>
 </body>
 

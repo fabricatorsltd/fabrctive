@@ -78,6 +78,26 @@
         <button type="submit">Login</button>
     </form>
 
+    <h2>Animations</h2>
+
+    <div>
+        <button fabr-animator fabr-animator-type="fadeIn" fabr-animator-target="#animation_1"
+            fabr-animator-event="click">Click to fade in</button>
+        <div id="animation_1" fabr-animator fabr-animator-type="fadeOut" fabr-animator-event="click"
+            style="display: none;">
+            Click to fade out
+        </div>
+    </div>
+
+    <div>
+        <button fabr-animator fabr-animator-type="slideRight" fabr-animator-target="#animation_2"
+            fabr-animator-event="click">Click to slide right</button>
+        <div id="animation_2" fabr-animator fabr-animator-type="slideLeft" fabr-animator-event="click"
+            style="display: none;">
+            Click to slide out left
+        </div>
+    </div>
+
     <script src="src/debugger.js"></script>
     <script src="src/core.js"></script>
 
@@ -94,6 +114,7 @@
     <script src="src/components/tooltip.js"></script>
     <script src="src/components/notebook.js"></script>
     <script src="src/components/table.js"></script>
+    <script src="src/components/animator.js"></script>
 
     <script src="src/tests/localstorage.js"></script>
 

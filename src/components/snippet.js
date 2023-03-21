@@ -32,7 +32,7 @@ class FabrSnippet extends FabrCoreComponent {
     const snippet = document.createElement("div");
     const pre = document.createElement("pre");
     const code = document.createElement("code");
-    const icon = this.iconHelper.new("code");
+    const icon = this.iconHelper.new("content_copy");
 
     snippet.classList.add("fabr-snippet");
     code.classList.add("fabr-snippet-code");

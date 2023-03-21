@@ -185,6 +185,7 @@ button:hover {
     background-color: #f3f2f1;
     border-radius: 4px;
     padding: 16px 20px;
+    border: 1px solid #eaeaea;
 }
 
 .fabr-snippet-code {

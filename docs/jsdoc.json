@@ -1,0 +1,17 @@
+{
+  "opts": {
+    "destination": "docs",
+    "recurse": true,
+    "readme": "./README.md"
+  },
+  "templates": {
+    "default": {
+      "staticFiles": {
+        "includePattern": ".+\\.(png|jpg|jpeg|gif|bmp|ico|svg|webp)$"
+      }
+    }
+  },
+  "source": {
+    "include": ["src"]
+  }
+}

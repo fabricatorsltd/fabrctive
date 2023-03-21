@@ -28,5 +28,6 @@ class Fabr extends FabrCore {
     new FabrNotebook().init();
     new FabrTable().init();
     new FabrAnimator().init();
+    new FabrSnippet().init();
   }
 }

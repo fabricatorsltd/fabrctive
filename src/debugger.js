@@ -8,7 +8,8 @@ class FabrDebugger {
 
   registerComponent(component) {
     this.component = component;
-    this.logPrefix = `${this.logPrefix} <🧩:${component.componentName}:${component.componentUID}>`;
+    const icon = component.componentType === "test" ? "🧪" : "🧩";
+    this.logPrefix = `${this.logPrefix} <${icon}:${component.componentName}:${component.componentUID}>`;
     this.log("Registered.");
   }
 

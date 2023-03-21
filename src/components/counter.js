@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrCounter component that counts and displays a value
+ * @extends FabrCoreComponent
+ */
 class FabrCounter extends FabrCoreComponent {
   constructor() {
     super();
@@ -10,6 +14,10 @@ class FabrCounter extends FabrCoreComponent {
     this.counters = {};
   }
 
+  /**
+   * Event handler function for the "click" event
+   * @param {Event} event - The event object
+   */
   onClick(event) {
     event.preventDefault();
     let target = event.target;

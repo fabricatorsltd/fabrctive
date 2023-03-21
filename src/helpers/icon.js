@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrHelperIcon helper.
+ * @extends FabrHelper
+ */
 class FabrHelperIcon extends FabrHelper {
   constructor() {
     super();
@@ -6,6 +10,9 @@ class FabrHelperIcon extends FabrHelper {
     this.iconDOMStructure = null;
   }
 
+  /**
+   * Set the icon library to FontAwesome.
+   */
   setIconsLibraryFontAwesome() {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -19,6 +26,9 @@ class FabrHelperIcon extends FabrHelper {
     this.iconDOMStructure.classList.add("fas", "fa-{{icon}}");
   }
 
+  /**
+   * Set the icon library to Material Design.
+   */
   setIconsLibraryMaterial() {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -32,6 +42,9 @@ class FabrHelperIcon extends FabrHelper {
     this.iconDOMStructure.innerHTML = "{{icon}}";
   }
 
+  /**
+   * Set the icon library to Bootstrap.
+   */
   setIconsLibraryBootstrap() {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -45,6 +58,10 @@ class FabrHelperIcon extends FabrHelper {
     this.iconDOMStructure.classList.add("bi", "bi-{{icon}}");
   }
 
+  /**
+   * Create a new icon element.
+   * @param {string} icon - The icon to use.
+   */
   new(icon) {
     if (this.iconDOMStructure === null) {
       // @@@IF NOT BUILD@@@

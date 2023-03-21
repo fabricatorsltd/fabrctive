@@ -1,3 +1,8 @@
+/**
+ * @classdesc Represents a component in the Fabr library.
+ * @class
+ * @extends FabrCore
+ */
 class FabrCoreComponent extends FabrCore {
   constructor() {
     super();
@@ -14,6 +19,9 @@ class FabrCoreComponent extends FabrCore {
     this.eventMap = {};
   }
 
+  /**
+   * Initializes the component.
+   */
   init() {
     // @@@IF NOT BUILD@@@
     this.debugger.registerComponent(this);
@@ -28,10 +36,18 @@ class FabrCoreComponent extends FabrCore {
     // @@@ENDIF@@@
   }
 
+  /**
+   * Gets a string representation of the component.
+   * @returns {string} A string representation of the component.
+   */
   get repr() {
     return `<${this.componentName}:${this.componentUID}>`;
   }
 
+  /**
+   * Gets an array representing the style of the component for debugging purposes.
+   * @returns {Array} An array representing the style of the component.
+   */
   get reprX() {
     const color = this.componentType === "test" ? "#ff6c6c" : "#6c63ff";
     return [
@@ -40,6 +56,9 @@ class FabrCoreComponent extends FabrCore {
     ];
   }
 
+  /**
+   * Initializes the elements for the component.
+   */
   initElements() {
     if (!this.selector) {
       this.debugger.log(`No selectors defined.`);
@@ -51,6 +70,9 @@ class FabrCoreComponent extends FabrCore {
     });
   }
 
+  /**
+   * Initializes the event listeners for the component.
+   */
   initEventListeners() {
     if (Object.keys(this.eventMap).length === 0) {
       this.debugger.log(`No event listeners defined.`);
@@ -76,6 +98,13 @@ class FabrCoreComponent extends FabrCore {
     }
   }
 
+  /**
+   * Adds an internal event listener to the specified element.
+   * @param {HTMLElement} element - The element to add the event listener to.
+   * @param {string} event - The name of the event to listen for.
+   * @param {string} fn - The name of the function to call when the event is triggered.
+   * @param {any} [reference] - A reference to pass to the function when it is called. (optional)
+   */
   addInternalEventListener(element, event, fn, reference = null) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Adding internal event listener for ${event} on ${fn}`);

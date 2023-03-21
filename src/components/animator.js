@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrAnimator component.
+ * @extends FabrCoreComponent
+ */
 class FabrAnimator extends FabrCoreComponent {
   constructor() {
     super();
@@ -14,6 +18,10 @@ class FabrAnimator extends FabrCoreComponent {
     this.animateHelper.init(this);
   }
 
+  /**
+   * Handle the animation event.
+   * @param {Event} event - The event object.
+   */
   onAnim(event) {
     let element = event.target;
     const animationType = element.getAttribute("fabr-animator-type");

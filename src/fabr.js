@@ -1,3 +1,7 @@
+/**
+ * @classdesc The main entry point for the Fabr library.
+ * @class
+ */
 class Fabr extends FabrCore {
   constructor() {
     super();
@@ -15,11 +19,17 @@ class Fabr extends FabrCore {
   }
 
   // @@@IF NOT BUILD@@@
+  /**
+   * Initializes all of the tests in the Fabr library.
+   */
   initTests() {
     new LocalStorageTestComponent().init();
   }
   // @@@ENDIF@@@
 
+  /**
+   * Initializes all of the components in the Fabr library.
+   */
   initComponents() {
     new FabrForm().init();
     new FabrLink().init();

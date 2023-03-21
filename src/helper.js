@@ -1,3 +1,7 @@
+/**
+ * @classdesc Provides common functionality that can be shared by all components in the Fabr library.
+ * @class
+ */
 class FabrHelper {
   constructor() {
     // @@@IF NOT BUILD@@@
@@ -9,6 +13,10 @@ class FabrHelper {
     this.component = null;
   }
 
+  /**
+   * Initializes the helper for the specified component.
+   * @param {FabrCoreComponent} component - The component that the helper is being initialized for.
+   */
   init(component) {
     this.component = component;
 

@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrNotebook component.
+ * @extends FabrCoreComponent
+ */
 class FabrNotebook extends FabrCoreComponent {
   constructor() {
     super();
@@ -12,12 +16,20 @@ class FabrNotebook extends FabrCoreComponent {
     this.animateHelper.init(this);
   }
 
+  /**
+   * Initialize the component by rendering the tabs.
+   * @override
+   */
   init() {
     super.init();
-    this.render();
+    this.#render();
   }
 
-  render() {
+  /**
+   * Render the tabs.
+   * @private
+   */
+  #render() {
     const tabs = document.querySelector(this.selector);
     const tabItems = tabs.querySelectorAll("[fabr-notebook-item]");
 
@@ -39,20 +51,29 @@ class FabrNotebook extends FabrCoreComponent {
       }
     });
 
-    this.activateTab(Object.keys(this.tabs)[0]);
+    this.#activateTab(Object.keys(this.tabs)[0]);
   }
 
+  /**
+   * Handle the click event.
+   * @param {Event} event - The event object.
+   */
   onClick(event) {
     event.preventDefault();
     const target = event.target.closest("[fabr-notebook-item]");
 
     if (target) {
       const tabId = target.getAttribute("fabr-notebook-item");
-      this.activateTab(tabId);
+      this.#activateTab(tabId);
     }
   }
 
-  activateTab(tabId) {
+  /**
+   * Activate a tab by id.
+   * @param {string} tabId - The tab id.
+   * @private
+   */
+  #activateTab(tabId) {
     Object.keys(this.tabs).forEach((key) => {
       const tab = this.tabs[key];
 

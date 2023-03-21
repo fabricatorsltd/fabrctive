@@ -1,9 +1,18 @@
+/**
+ * @classdesc Represents a FabrHelperLocalStorage helper.
+ * @extends FabrHelper
+ */
 class FabrHelperLocalStorage extends FabrHelper {
   constructor() {
     super();
     this.helperName = "LocalStorage";
   }
 
+  /**
+   * Set an item in the Local Storage.
+   * @param {string} key - The key to set.
+   * @param {string} value - The value to set.
+   */
   setItem(key, value) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Setting item the Local Storage: ${key} = ${value}`);
@@ -16,6 +25,11 @@ class FabrHelperLocalStorage extends FabrHelper {
     }
   }
 
+  /**
+   * Get an item from the Local Storage.
+   * @param {string} key - The key to get.
+   * @returns {any} The value of the item.
+   */
   getItem(key) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Getting item from the Local Storage: ${key}`);
@@ -33,6 +47,10 @@ class FabrHelperLocalStorage extends FabrHelper {
     }
   }
 
+  /**
+   * Remove an item from the Local Storage.
+   * @param {string} key - The key to remove.
+   */
   removeItem(key) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Removing item from the Local Storage: ${key}`);
@@ -45,6 +63,9 @@ class FabrHelperLocalStorage extends FabrHelper {
     }
   }
 
+  /**
+   * Initialize a storage object for the component.
+   */
   initComponentStorage() {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -56,6 +77,10 @@ class FabrHelperLocalStorage extends FabrHelper {
     this.setItem(this.component.componentUID, {});
   }
 
+  /**
+   * Get the storage object for the component.
+   * @returns {object} The storage object.
+   */
   getComponentStorage() {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Getting Local Storage for {@@}`, this.component.reprX);
@@ -69,6 +94,11 @@ class FabrHelperLocalStorage extends FabrHelper {
     return storage;
   }
 
+  /**
+   * Set an item in the component's Local Storage.
+   * @param {string} key - The key to set.
+   * @param {string} value - The value to set.
+   */
   setCItem(key, value) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -82,6 +112,11 @@ class FabrHelperLocalStorage extends FabrHelper {
     this.setItem(this.component.componentUID, storage);
   }
 
+  /**
+   * Get an item from the component's Local Storage.
+   * @param {string} key - The key to get.
+   * @returns {any} The value of the item.
+   */
   getCItem(key) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -94,6 +129,10 @@ class FabrHelperLocalStorage extends FabrHelper {
     return storage[key];
   }
 
+  /**
+   * Remove an item from the component's Local Storage.
+   * @param {string} key - The key to remove.
+   */
   removeCItem(key) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(
@@ -107,6 +146,10 @@ class FabrHelperLocalStorage extends FabrHelper {
     this.setItem(this.component.componentUID, storage);
   }
 
+  /**
+   * Clear the component's Local Storage.
+   * @param {string} key - The key to remove.
+   */
   clearComponentStorage() {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Clearing Local Storage for {@@}`, this.component.reprX);

@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrTooltip component.
+ * @extends FabrCoreComponent
+ */
 class FabrTooltip extends FabrCoreComponent {
   constructor() {
     super();
@@ -5,14 +9,18 @@ class FabrTooltip extends FabrCoreComponent {
     this.componentStyleClass = "fabr-has-tooltip";
     this.selector = "[fabr-tooltip]";
     this.eventMap = {
-      mouseenter: "showTooltip",
-      mouseleave: "removeTooltips",
+      mouseenter: "onMouseEnter",
+      mouseleave: "onMouseLeave",
     };
     this.animateHelper = new FabrHelperAnimate();
     this.animateHelper.init(this);
   }
 
-  showTooltip(event) {
+  /**
+   * Handle the mouseenter event.
+   * @param {Event} event - The event object.
+   */
+  onMouseEnter(event) {
     const target = event.target.closest("[fabr-tooltip]");
     if (target) {
       const tooltipId = target.getAttribute("fabr-tooltip");
@@ -32,8 +40,11 @@ class FabrTooltip extends FabrCoreComponent {
     }
   }
 
-  removeTooltips(event) {
-    console.log("removeTooltips");
+  /**
+   * Handle the mouseleave event.
+   * @param {Event} event - The event object.
+   */
+  onMouseLeave(event) {
     const tooltips = document.querySelectorAll(".fabr-tooltip");
     tooltips.forEach((tooltip) => {
       this.animateHelper.fadeOut(tooltip, true);

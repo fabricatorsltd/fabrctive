@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrLink component.
+ * @extends FabrCoreComponent
+ */
 class FabrLink extends FabrCoreComponent {
   constructor() {
     super();
@@ -10,6 +14,10 @@ class FabrLink extends FabrCoreComponent {
     };
   }
 
+  /**
+   * Handle the click event.
+   * @param {Event} event - The event object.
+   */
   onClick(event) {
     event.preventDefault();
     let source = "";
@@ -56,6 +64,11 @@ class FabrLink extends FabrCoreComponent {
       .catch((error) => console.error("Error:", error));
   }
 
+  /**
+   * Handle the mouseover event.
+   * @param {Event} event - The event object.
+   * @todo Implement this method.
+   */
   onMouseOver(event) {
     console.log("Mouse Over on:", event.target);
   }

@@ -1,3 +1,8 @@
+/**
+ * @classdesc Represents a LocalStorageTestComponent component.
+ * @extends FabrCoreComponent
+ * @example
+ */
 class LocalStorageTestComponent extends FabrCoreComponent {
   constructor() {
     super();
@@ -7,12 +12,20 @@ class LocalStorageTestComponent extends FabrCoreComponent {
     this.localStorageHelper.init(this);
   }
 
+  /**
+   * Initialize the test component.
+   * @override
+   */
   init() {
     super.init();
-    this.run_test();
+    this.#run_test();
   }
 
-  run_test() {
+  /**
+   * Run the test.
+   * @private
+   */
+  #run_test() {
     this.localStorageHelper.initComponentStorage();
 
     this.localStorageHelper.setCItem("testKey", "testValue");

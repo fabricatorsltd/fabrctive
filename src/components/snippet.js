@@ -1,3 +1,7 @@
+/**
+ * @classdesc Represents a FabrSnippet component.
+ * @extends FabrCoreComponent
+ */
 class FabrSnippet extends FabrCoreComponent {
   constructor() {
     super();
@@ -14,18 +18,31 @@ class FabrSnippet extends FabrCoreComponent {
     this.toastHelper.init(this);
   }
 
+  /**
+   * Initialize the component by rendering the snippet.
+   * @override
+   */
   init() {
     super.init();
-    this.render();
+    this.#render();
   }
 
-  render() {
+  /**
+   * Render the snippet.
+   * @private
+   */
+  #render() {
     this.elements.forEach((element) => {
-      this.renderSnippet(element);
+      this.#renderSnippet(element);
     });
   }
 
-  renderSnippet(element) {
+  /**
+   * Render the snippet from the given element.
+   * @param {HTMLElement} element - The element to render the snippet from.
+   * @private
+   */
+  #renderSnippet(element) {
     const originElement = document.querySelector(
       element.getAttribute("fabr-snippet-from")
     );
@@ -38,7 +55,7 @@ class FabrSnippet extends FabrCoreComponent {
     code.classList.add("fabr-snippet-code");
     pre.classList.add("fabr-snippet-pre");
     icon.classList.add("fabr-snippet-icon");
-    code.innerText = this.cleanUpHtml(originElement.innerHTML);
+    code.innerText = this.#cleanUpHtml(originElement.innerHTML);
 
     this.addInternalEventListener(icon, "click", "onIconClick", element);
 
@@ -48,7 +65,13 @@ class FabrSnippet extends FabrCoreComponent {
     element.appendChild(snippet);
   }
 
-  cleanUpHtml(unsafe) {
+  /**
+   * Clean up the given HTML string to be used in a code snippet.
+   * @param {string} unsafe - The unsafe HTML string.
+   * @returns {string} The safe HTML string.
+   * @private
+   */
+  #cleanUpHtml(unsafe) {
     let res = unsafe
       .replace(/&/g, "&")
       .replace(/</g, "<")
@@ -59,6 +82,11 @@ class FabrSnippet extends FabrCoreComponent {
     return res;
   }
 
+  /**
+   * Handle the click event on the icon.
+   * @param {Event} event - The event object.
+   * @param {HTMLElement} element - The element to render the snippet from.
+   */
   onIconClick(event, element) {
     const codeElement = element.querySelector(".fabr-snippet-code");
     const codeSnippet = codeElement.innerText;

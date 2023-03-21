@@ -1,7 +1,7 @@
 <br/>
 
 <div align="center">
-  <img src="/docs/fabr-logo-color.svg" height="54">
+  <img src="docs/fabr-logo-color.svg" height="54">
   <p align="center">fabrctive is a small library that allows you to create reactive web applications in a declarative way.</p>
 </div>
 
@@ -59,6 +59,9 @@ To use the library in development mode, you need to include all the files manual
         new Fabr();
     </script>
 ```
+
+## Examples
+Check [examples.html](examples.html) for a list of examples that demonstrate the usage of the library.
 
 ## Documentation
 

@@ -50,6 +50,7 @@ To use the library in development mode, you need to include all the files manual
     <script src="src/components/notebook.js"></script>
     <script src="src/components/table.js"></script>
     <script src="src/components/animator.js"></script>
+    <script src="src/components/snippet.js"></script>
 
     <script src="src/tests/localstorage.js"></script>
 
@@ -175,14 +176,15 @@ then add it to the `fabr.js` file to make it available:
 
 ```javascript
 ...
-  init() {
-    this.initForms();
-    this.initLinks();
-    this.initCounters(); // your component
-  }
-
-  initCounters() { // your component initialization
-    new FabrCounter().init();
+  initComponents() {
+    new FabrForm().init();
+    new FabrLink().init();
+    new FabrCounter().init(); // your component initialization
+    new FabrTooltip().init();
+    new FabrNotebook().init();
+    new FabrTable().init();
+    new FabrAnimator().init();
+    new FabrSnippet().init();
   }
 ...
 ```

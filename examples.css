@@ -29,7 +29,6 @@ section {
 }
 
 button {
-    cursor: pointer;
     border: none;
     background-color: #0078d7;
     color: #ffffff;
@@ -106,7 +105,7 @@ button:hover {
     background-color: #f3f2f1;
     text-align: left;
     font-weight: bold;
-    cursor: pointer;
+
 }
 
 .fabr-table th i {
@@ -140,7 +139,6 @@ button:hover {
     border-color: #0078d7;
     color: #ffffff;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .fabr-form p {
@@ -166,8 +164,12 @@ button:hover {
     padding: 16px;
     font-size: 14px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: default;
     border-bottom: 3px solid transparent;
+}
+
+.fabr-notebook li:hover {
+    background-color: #eaeaea;
 }
 
 .fabr-notebook li.active {
@@ -201,5 +203,15 @@ button:hover {
 }
 
 .fabr-snippet-icon {
-    cursor: pointer;
+    cursor: default;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.fabr-snippet-icon:hover {
+    background-color: #eaeaea;
 }

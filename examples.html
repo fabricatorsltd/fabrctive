@@ -10,93 +10,137 @@
 
     <h1>Examples</h1>
 
-    <h2>Counters</h2>
+    <section>
+        <h2>Counters</h2>
 
-    <button fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
-    <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
-    <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
-
-    <h2>Tooltips</h2>
-
-    <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
-
-    <h2>Notebooks</h2>
-
-    <div fabr-notebook>
-        <ul>
-            <li fabr-notebook-item="tab1">Tab 1</li>
-            <li fabr-notebook-item="tab2">Tab 2</li>
-            <li fabr-notebook-item="tab3">Tab 3</li>
-        </ul>
-        <div fabr-notebook-content="tab1">Content tab 1</div>
-        <div fabr-notebook-content="tab2">Content tab 2</div>
-        <div fabr-notebook-content="tab3">Content tab 3</div>
-    </div>
-
-    <h2>Tables</h2>
-
-    <table fabr-table fabr-table-options="search|sort">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>City</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>20</td>
-                <td>New York</td>
-            </tr>
-            <tr>
-                <td>Mike</td>
-                <td>30</td>
-                <td>London</td>
-            </tr>
-            <tr>
-                <td>Anna</td>
-                <td>25</td>
-                <td>Paris</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Forms</h2>
-
-    <form fabr-form fabr-form-response="tests/test_login_response_200.json" method="POST">
-        <p>This form will succeed</p>
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-    </form>
-
-    <form fabr-form fabr-form-response="tests/test_login_response_400.json" method="POST">
-        <p>This form will fail</p>
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-    </form>
-
-    <h2>Animations</h2>
-
-    <div>
-        <button fabr-animator fabr-animator-type="fadeIn" fabr-animator-target="#animation_1"
-            fabr-animator-event="click">Click to fade in</button>
-        <div id="animation_1" fabr-animator fabr-animator-type="fadeOut" fabr-animator-event="click"
-            style="display: none;">
-            Click to fade out
+        <div id="snippet_1">
+            <button fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
+            <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
+            <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
         </div>
-    </div>
 
-    <div>
-        <button fabr-animator fabr-animator-type="slideRight" fabr-animator-target="#animation_2"
-            fabr-animator-event="click">Click to slide right</button>
-        <div id="animation_2" fabr-animator fabr-animator-type="slideLeft" fabr-animator-event="click"
-            style="display: none;">
-            Click to slide out left
+        <div fabr-snippet fabr-snippet-from="#snippet_1"></div>
+    </section>
+
+    <section>
+        <h2>Tooltips</h2>
+
+        <div id="snippet_2">
+            <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
         </div>
-    </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_2"></div>
+    </section>
+
+    <section>
+        <h2>Notebooks</h2>
+
+        <div id="snippet_3">
+            <div fabr-notebook>
+                <ul>
+                    <li fabr-notebook-item="tab1">Tab 1</li>
+                    <li fabr-notebook-item="tab2">Tab 2</li>
+                    <li fabr-notebook-item="tab3">Tab 3</li>
+                </ul>
+                <div fabr-notebook-content="tab1">Content tab 1</div>
+                <div fabr-notebook-content="tab2">Content tab 2</div>
+                <div fabr-notebook-content="tab3">Content tab 3</div>
+            </div>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_3"></div>
+    </section>
+
+    <section>
+        <h2>Tables</h2>
+
+        <div id="snippet_4">
+            <table fabr-table fabr-table-options="search|sort">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>20</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>Mike</td>
+                        <td>30</td>
+                        <td>London</td>
+                    </tr>
+                    <tr>
+                        <td>Anna</td>
+                        <td>25</td>
+                        <td>Paris</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_4"></div>
+    </section>
+
+    <section>
+        <h2>Forms</h2>
+
+        <div id="snippet_5">
+            <form fabr-form fabr-form-response="tests/test_login_response_200.json" method="POST">
+                <p>This form will succeed</p>
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_5"></div>
+
+        <div id="snippet_6">
+            <form fabr-form fabr-form-response="tests/test_login_response_400.json" method="POST">
+                <p>This form will fail</p>
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_6"></div>
+    </section>
+
+    <section>
+        <h2>Animations</h2>
+
+        <div id="snippet_7">
+            <div>
+                <button fabr-animator fabr-animator-type="fadeIn" fabr-animator-target="#animation_1"
+                    fabr-animator-event="click">Click to fade in</button>
+                <div id="animation_1" fabr-animator fabr-animator-type="fadeOut" fabr-animator-event="click"
+                    style="display: none;">
+                    Click to fade out
+                </div>
+            </div>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_7"></div>
+
+        <div id="snippet_8">
+            <div>
+                <button fabr-animator fabr-animator-type="slideRight" fabr-animator-target="#animation_2"
+                    fabr-animator-event="click">Click to slide right</button>
+                <div id="animation_2" fabr-animator fabr-animator-type="slideLeft" fabr-animator-event="click"
+                    style="display: none;">
+                    Click to slide out left
+                </div>
+            </div>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_8"></div>
+    </section>
 
     <script src="src/debugger.js"></script>
     <script src="src/core.js"></script>
@@ -115,6 +159,7 @@
     <script src="src/components/notebook.js"></script>
     <script src="src/components/table.js"></script>
     <script src="src/components/animator.js"></script>
+    <script src="src/components/snippet.js"></script>
 
     <script src="src/tests/localstorage.js"></script>
 
@@ -125,6 +170,7 @@
     </script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="examples.css" rel="stylesheet">
 </body>
 
 </html>

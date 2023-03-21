@@ -8,6 +8,7 @@ class FabrCoreComponent extends FabrCore {
 
     this.componentUID = Math.random().toString(36).substr(2, 9);
     this.componentName = "Generic";
+    this.componentType = "generic";
     this.selector = "";
     this.eventMap = {};
   }
@@ -31,21 +32,24 @@ class FabrCoreComponent extends FabrCore {
   }
 
   get reprX() {
+    const color = this.componentType === "test" ? "#ff6c6c" : "#6c63ff";
     return [
       `<${this.componentName}:${this.componentUID}>`,
-      "background: #6c63ff; color: white; border-radius: 3px; padding: 0 3px; font-weight: bold",
+      `background: ${color}; color: white; border-radius: 3px; padding: 0 3px; font-weight: bold`,
     ];
   }
 
   initElements() {
+    if (!this.selector) {
+      this.debugger.log(`No selectors defined.`);
+      return;
+    }
     this.elements = document.querySelectorAll(this.selector);
   }
 
   initEventListeners() {
     if (Object.keys(this.eventMap).length === 0) {
-      this.debugger.log(
-        `No event listeners defined for ${this.repr} on ${this.selector}`
-      );
+      this.debugger.log(`No event listeners defined.`);
       return;
     }
 

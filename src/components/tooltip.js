@@ -23,7 +23,7 @@ class FabrTooltip extends FabrCoreComponent {
       const targetRect = target.getBoundingClientRect();
       const tooltipRect = tooltip.getBoundingClientRect();
       tooltip.style.position = "absolute";
-      tooltip.style.top = `${targetRect.top - tooltipRect.height - 10}px`;
+      tooltip.style.top = `${targetRect.top - tooltipRect.height - 30}px`;
       tooltip.style.left = `${targetRect.left - tooltipRect.width / 2}px`;
 
       document.body.appendChild(tooltip);

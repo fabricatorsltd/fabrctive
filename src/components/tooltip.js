@@ -17,7 +17,7 @@ class FabrTooltip extends FabrCoreComponent {
       const tooltipId = target.getAttribute("fabr-tooltip");
       const tooltip = document.createElement("div");
       tooltip.setAttribute("id", tooltipId);
-      tooltip.setAttribute("class", "tooltip");
+      tooltip.setAttribute("class", "fabr-tooltip");
       tooltip.innerText = target.getAttribute("fabr-tooltip-text");
       document.body.appendChild(tooltip);
       this.animateHelper.fadeIn(tooltip);

@@ -2,6 +2,7 @@ class FabrNotebook extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrNotebook";
+    this.componentStyleClass = "fabr-notebook";
     this.selector = "[fabr-notebook]";
     this.eventMap = {
       click: "onClick",
@@ -25,6 +26,9 @@ class FabrNotebook extends FabrCoreComponent {
       const tabContent = document.querySelector(
         `[fabr-notebook-content="${tabId}"]`
       );
+
+      tabItem.classList.add("fabr-notebook-item");
+      tabContent.classList.add("fabr-notebook-content");
       tabContent.style.display = "none";
 
       if (tabContent) {

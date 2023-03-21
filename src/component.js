@@ -9,6 +9,7 @@ class FabrCoreComponent extends FabrCore {
     this.componentUID = Math.random().toString(36).substr(2, 9);
     this.componentName = "Generic";
     this.componentType = "generic";
+    this.componentStyleClass = "fabr-component";
     this.selector = "";
     this.eventMap = {};
   }
@@ -45,6 +46,9 @@ class FabrCoreComponent extends FabrCore {
       return;
     }
     this.elements = document.querySelectorAll(this.selector);
+    this.elements.forEach((element) => {
+      element.classList.add(this.componentStyleClass);
+    });
   }
 
   initEventListeners() {

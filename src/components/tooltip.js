@@ -2,6 +2,7 @@ class FabrTooltip extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrTooltip";
+    this.componentStyleClass = "fabr-has-tooltip";
     this.selector = "[fabr-tooltip]";
     this.eventMap = {
       mouseenter: "showTooltip",
@@ -22,7 +23,7 @@ class FabrTooltip extends FabrCoreComponent {
 
       const targetRect = target.getBoundingClientRect();
       const tooltipRect = tooltip.getBoundingClientRect();
-      tooltip.style.position = "absolute";
+      tooltip.style.position = "fixed";
       tooltip.style.top = `${targetRect.top - tooltipRect.height - 30}px`;
       tooltip.style.left = `${targetRect.left - tooltipRect.width / 2}px`;
 

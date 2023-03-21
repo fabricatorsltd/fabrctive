@@ -2,6 +2,7 @@ class FabrTable extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "Table";
+    this.componentStyleClass = "fabr-table";
     this.selector = "[fabr-table]";
     this.eventMap = {};
     this.tables = [];
@@ -51,6 +52,7 @@ class FabrTable extends FabrCoreComponent {
     search.setAttribute("type", "text");
     search.setAttribute("placeholder", "Search...");
     search.setAttribute("fabr-table-search", "");
+    search.classList.add("fabr-table-search");
     table.activeElement.insertBefore(search, table.element);
     this.addInternalEventListener(search, "keyup", "onKeyup", table);
   }

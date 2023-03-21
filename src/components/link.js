@@ -2,6 +2,7 @@ class FabrLink extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrLink";
+    this.componentStyleClass = "fabr-link";
     this.selector = "[fabr-link]";
     this.eventMap = {
       click: "onClick",

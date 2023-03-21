@@ -2,6 +2,7 @@ class FabrForm extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrForm";
+    this.componentStyleClass = "fabr-form";
     this.selector = "[fabr-form]";
     this.eventMap = {
       submit: "onSubmit",

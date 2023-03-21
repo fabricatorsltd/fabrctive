@@ -2,6 +2,7 @@ class FabrCounter extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrCounter";
+    this.componentStyleClass = "fabr-counter";
     this.selector = "[fabr-counter]";
     this.eventMap = {
       click: "onClick",
@@ -11,7 +12,12 @@ class FabrCounter extends FabrCoreComponent {
 
   onClick(event) {
     event.preventDefault();
-    const target = event.target.closest("[fabr-counter]");
+    let target = event.target;
+    const virtualTarget = target.getAttribute("fabr-counter-target");
+
+    if (target.getAttribute("fabr-counter-target")) {
+      target = virtualTarget;
+    }
 
     if (target) {
       const counterId = target.getAttribute("fabr-counter");

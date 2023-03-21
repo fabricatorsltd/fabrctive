@@ -2,6 +2,7 @@ class FabrAnimator extends FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrAnimator";
+    this.componentStyleClass = "fabr-animator";
     this.selector = "[fabr-animator]";
     this.eventMap = {
       click: "onAnim",

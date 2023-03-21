@@ -68,7 +68,6 @@ class FabrHelperIcon extends FabrHelper {
     iconElement.previousIcon = "{{icon}}";
 
     iconElement.changeIcon = (icon) => {
-      console.log(iconElement.previousIcon);
       // @@@IF NOT BUILD@@@
       this.debugger.log(
         `Changing icon to "${icon}" for {@@} using ${this.iconsLibrary} library`,

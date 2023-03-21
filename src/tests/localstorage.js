@@ -1,7 +1,6 @@
 /**
  * @classdesc Represents a LocalStorageTestComponent component.
  * @extends FabrCoreComponent
- * @example
  */
 class LocalStorageTestComponent extends FabrCoreComponent {
   constructor() {

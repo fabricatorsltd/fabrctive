@@ -33,13 +33,27 @@ Then, you can use the `Fabr` class to initialize the library.
 To use the library in development mode, you need to include all the files manually.
 
 ```html
-    <script src="debugger.js"></script>
-    <script src="core.js"></script>
-    <script src="component.js"></script>
-    <script src="components/form.js"></script>
-    <script src="components/link.js"></script>
-    <script src="components/counter.js"></script>
-    <script src="fabr.js"></script>
+    <script src="src/debugger.js"></script>
+    <script src="src/core.js"></script>
+
+    <script src="src/helper.js"></script>
+    <script src="src/helpers/animate.js"></script>
+    <script src="src/helpers/icon.js"></script>
+    <script src="src/helpers/localstorage.js"></script>
+    <script src="src/helpers/toast.js"></script>
+
+    <script src="src/component.js"></script>
+    <script src="src/components/form.js"></script>
+    <script src="src/components/link.js"></script>
+    <script src="src/components/counter.js"></script>
+    <script src="src/components/tooltip.js"></script>
+    <script src="src/components/notebook.js"></script>
+    <script src="src/components/table.js"></script>
+    <script src="src/components/animator.js"></script>
+
+    <script src="src/tests/localstorage.js"></script>
+
+    <script src="src/fabr.js"></script>
 
     <script>
         new Fabr();

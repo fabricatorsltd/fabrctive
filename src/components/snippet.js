@@ -66,19 +66,12 @@ class FabrSnippet extends FabrCoreComponent {
     navigator.clipboard
       .writeText(codeSnippet)
       .then(() => {
-        this.toastHelper.showToast(
-          "Code snippet copied to clipboard!",
-          "info",
-          0,
-          true
-        );
+        this.toastHelper.showToast("Code snippet copied to clipboard!", "info");
       })
       .catch((error) => {
         this.toastHelper.showToast(
           "Code snippet copied to clipboard!",
-          "error",
-          0,
-          true
+          "error"
         );
       });
   }

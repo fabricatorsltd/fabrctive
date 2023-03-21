@@ -62,6 +62,22 @@
         </tbody>
     </table>
 
+    <h2>Forms</h2>
+
+    <form fabr-form fabr-form-response="tests/test_login_response_200.json" method="POST">
+        <p>This form will succeed</p>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+
+    <form fabr-form fabr-form-response="tests/test_login_response_400.json" method="POST">
+        <p>This form will fail</p>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+
     <script src="src/debugger.js"></script>
     <script src="src/core.js"></script>
 
@@ -69,6 +85,7 @@
     <script src="src/helpers/animate.js"></script>
     <script src="src/helpers/icon.js"></script>
     <script src="src/helpers/localstorage.js"></script>
+    <script src="src/helpers/toast.js"></script>
 
     <script src="src/component.js"></script>
     <script src="src/components/form.js"></script>

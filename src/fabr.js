@@ -1,47 +1,31 @@
 class Fabr extends FabrCore {
   constructor() {
     super();
-    console.log("Fabr initializing");
+    console.log("%cFabr initializing...", "color: #00f");
     this.init();
-    console.log("Fabr initialized");
+    console.log("%cFabr initialized", "color: #00f");
   }
 
   init() {
-    this.initForms();
-    this.initLinks();
-    this.initCounters();
-    this.initTooltips();
-    this.initNotebooks();
-    this.initTables();
+    this.initComponents();
+
+    // @@@IF NOT BUILD@@@
+    this.initTests();
+    // @@@ENDIF@@@
   }
 
-  initForms() {
-    const forms = new FabrForm();
-    forms.init();
+  // @@@IF NOT BUILD@@@
+  initTests() {
+    new LocalStorageTestComponent().init();
   }
+  // @@@ENDIF@@@
 
-  initLinks() {
-    const links = new FabrLink();
-    links.init();
-  }
-
-  initCounters() {
-    const counters = new FabrCounter();
-    counters.init();
-  }
-
-  initTooltips() {
-    const tooltips = new FabrTooltip();
-    tooltips.init();
-  }
-
-  initNotebooks() {
-    const notebooks = new FabrNotebook();
-    notebooks.init();
-  }
-
-  initTables() {
-    const tables = new FabrTable();
-    tables.init();
+  initComponents() {
+    new FabrForm().init();
+    new FabrLink().init();
+    new FabrCounter().init();
+    new FabrTooltip().init();
+    new FabrNotebook().init();
+    new FabrTable().init();
   }
 }

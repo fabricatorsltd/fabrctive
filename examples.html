@@ -16,20 +16,30 @@
     <section>
         <h2>Counters</h2>
 
-        <div id="snippet_1">
+        <div id="snippet_0">
             <button fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
             <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
             <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_0"></div>
+    </section>
+
+    <section>
+        <h2>Tooltips</h2>
+
+        <div id="snippet_1">
+            <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
         </div>
 
         <div fabr-snippet fabr-snippet-from="#snippet_1"></div>
     </section>
 
     <section>
-        <h2>Tooltips</h2>
+        <h2>Links</h2>
 
         <div id="snippet_2">
-            <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
+            <a href="tests/test_new_page.html" fabr-link>Link to a new page</a>
         </div>
 
         <div fabr-snippet fabr-snippet-from="#snippet_2"></div>

@@ -24,6 +24,8 @@ class Fabr extends FabrCore {
    */
   initTests() {
     new LocalStorageTestComponent().init();
+    new SharedMemory1TestComponent().init();
+    new SharedMemory2TestComponent().init();
   }
   // @@@ENDIF@@@
 

@@ -9,7 +9,6 @@ class FabrTable extends FabrCoreComponent {
     this.componentStyleClass = "fabr-table";
     this.selector = "[fabr-table]";
     this.eventMap = {};
-    this.tables = [];
 
     this.iconHelper = new FabrHelperIcon();
     this.iconHelper.init(this);
@@ -17,49 +16,22 @@ class FabrTable extends FabrCoreComponent {
   }
 
   /**
-   * Initialize the component by rendering the tables.
-   * @override
+   * Render the table.
    */
-  init() {
-    super.init();
-    this.#render();
-  }
-
-  /**
-   * Render the tables.
-   * @private
-   */
-  #render() {
-    this.elements.forEach((table) => {
-      this.tables.push({
-        element: table,
-        options: table.getAttribute("fabr-table-options").split("|"),
-        activeElement: null,
-      });
-    });
-
-    this.tables.forEach((table) => {
-      this.#renderTable(table);
-    });
-  }
-
-  /**
-   * Render the given table.
-   * @param {Object} table - The table to render.
-   * @private
-   */
-  #renderTable(table) {
+  render(table) {
     const wrapper = document.createElement("div");
+    const options = table.getAttribute("fabr-table-options").split("|");
+
     wrapper.classList.add("fabr-table-wrapper");
-    table.element.parentNode.insertBefore(wrapper, table.element);
-    wrapper.appendChild(table.element);
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
     table.activeElement = wrapper;
 
-    if (table.options.includes("search")) {
+    if (options.includes("search")) {
       this.#renderSearch(table);
     }
 
-    if (table.options.includes("sort")) {
+    if (options.includes("sort")) {
       this.#renderSort(table);
     }
   }
@@ -75,7 +47,7 @@ class FabrTable extends FabrCoreComponent {
     search.setAttribute("placeholder", "Search...");
     search.setAttribute("fabr-table-search", "");
     search.classList.add("fabr-table-search");
-    table.activeElement.insertBefore(search, table.element);
+    table.activeElement.insertBefore(search, table);
     this.addInternalEventListener(search, "keyup", "onKeyup", table);
   }
 
@@ -85,7 +57,7 @@ class FabrTable extends FabrCoreComponent {
    * @private
    */
   #renderSort(table) {
-    const ths = table.element.querySelectorAll("th");
+    const ths = table.querySelectorAll("th");
     ths.forEach((th) => {
       const icon = this.iconHelper.new("unfold_more");
       th.sortIcon = icon;
@@ -104,13 +76,13 @@ class FabrTable extends FabrCoreComponent {
   #sortTable(th, table) {
     const isAsc = th.getAttribute("fabr-table-sort") === "asc";
 
-    const ths = table.element.querySelectorAll("[fabr-table-sort]");
+    const ths = table.querySelectorAll("[fabr-table-sort]");
     ths.forEach((th) => {
       th.sortIcon.changeIcon("unfold_more");
       th.setAttribute("fabr-table-sort", "");
     });
 
-    const tbody = table.element.querySelector("tbody");
+    const tbody = table.querySelector("tbody");
     const rows = tbody.querySelectorAll("tr");
     const index = th.cellIndex;
     const sortedRows = Array.from(rows).sort((rowA, rowB) => {
@@ -137,7 +109,7 @@ class FabrTable extends FabrCoreComponent {
    */
   #searchTable(input, table) {
     const value = input.value.toLowerCase();
-    const rows = table.element.querySelectorAll("tbody tr");
+    const rows = table.querySelectorAll("tbody tr");
 
     rows.forEach((row) => {
       const text = row.textContent.toLowerCase();

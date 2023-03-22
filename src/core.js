@@ -29,8 +29,23 @@ class FabrCore {
    */
   fetchJSON(sourceUrl) {
     return fetch(sourceUrl)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not OK");
+        }
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new TypeError("Expected JSON response");
+        }
+        return response.json();
+      })
       .then((data) => {
+        if (
+          !Array.isArray(data) ||
+          !data.every((item) => typeof item === "object")
+        ) {
+          throw new TypeError("Invalid JSON data");
+        }
         return data;
       })
       .catch((error) => {

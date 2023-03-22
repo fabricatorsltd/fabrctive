@@ -1,5 +1,5 @@
 body {
-    font-family: "sans-serif";
+    font-family: "Work Sans", sans-serif;
     padding: 16px;
     max-width: 990px;
     margin: 0 auto;
@@ -28,7 +28,9 @@ section {
     margin: 0 0 16px 0;
 }
 
-button {
+button,
+input[type="submit"],
+input[type="button"] {
     border: none;
     background-color: #0078d7;
     color: #ffffff;
@@ -40,6 +42,10 @@ button {
 
 button:hover {
     background-color: #0063b1;
+}
+
+button:active {
+    background-color: #004578;
 }
 
 .fabr-tooltip {
@@ -60,10 +66,11 @@ button:hover {
     right: 20px;
     padding: 16px;
     border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 500;
     color: #ffffff;
     z-index: 9999;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .fabr-toast-success {
@@ -105,7 +112,6 @@ button:hover {
     background-color: #f3f2f1;
     text-align: left;
     font-weight: bold;
-
 }
 
 .fabr-table th i {
@@ -115,15 +121,19 @@ button:hover {
 
 .fabr-table th:hover {
     background-color: #eaeaea;
+    cursor: default;
 }
 
 .fabr-table tbody tr:hover {
     background-color: #f3f2f1;
 }
 
+.fabr-table tr:nth-child(odd) {
+    background-color: #f3f2f196;
+}
+
 .fabr-form input[type="text"],
-.fabr-form input[type="password"],
-.fabr-form button[type="submit"] {
+.fabr-form input[type="password"] {
     display: block;
     padding: 12px;
     margin-bottom: 16px;
@@ -132,13 +142,6 @@ button:hover {
     border-radius: 4px;
     box-sizing: border-box;
     border: 1px solid #d1d1d1;
-}
-
-.fabr-form button[type="submit"] {
-    background-color: #0078d7;
-    border-color: #0078d7;
-    color: #ffffff;
-    font-weight: bold;
 }
 
 .fabr-form p {
@@ -162,8 +165,8 @@ button:hover {
 
 .fabr-notebook li {
     padding: 16px;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 500;
     cursor: default;
     border-bottom: 3px solid transparent;
 }
@@ -174,6 +177,7 @@ button:hover {
 
 .fabr-notebook li.active {
     border-bottom-color: #0078d7;
+    font-weight: 600;
 }
 
 .fabr-notebook-content {
@@ -188,6 +192,7 @@ button:hover {
     border-radius: 4px;
     padding: 16px 20px;
     border: 1px solid #eaeaea;
+    position: relative;
 }
 
 .fabr-snippet-code {
@@ -196,6 +201,7 @@ button:hover {
     border-radius: 0;
     font-size: 14px;
     margin: 0;
+    font-family: monospace;
 }
 
 .fabr-snippet-pre {
@@ -210,8 +216,19 @@ button:hover {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    pointer-events: none;
+    opacity: 0;
+    padding: 5px;
 }
 
 .fabr-snippet-icon:hover {
     background-color: #eaeaea;
+}
+
+.fabr-snippet:hover .fabr-snippet-icon {
+    opacity: 1;
+    pointer-events: initial;
 }

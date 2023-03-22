@@ -8,34 +8,20 @@ class FabrNotebook extends FabrCoreComponent {
     this.componentName = "FabrNotebook";
     this.componentStyleClass = "fabr-notebook";
     this.selector = "[fabr-notebook]";
-    this.eventMap = {
-      click: "onClick",
-    };
-    this.tabs = {};
+    this.eventMap = {};
     this.animateHelper = new FabrHelperAnimate();
     this.animateHelper.init(this);
   }
 
   /**
-   * Initialize the component by rendering the tabs.
-   * @override
-   */
-  init() {
-    super.init();
-    this.#render();
-  }
-
-  /**
    * Render the tabs.
-   * @private
    */
-  #render() {
-    const tabs = document.querySelector(this.selector);
-    const tabItems = tabs.querySelectorAll("[fabr-notebook-item]");
+  render(element) {
+    const tabItems = element.querySelectorAll("[fabr-notebook-item]");
 
     tabItems.forEach((tabItem) => {
       const tabId = tabItem.getAttribute("fabr-notebook-item");
-      const tabContent = document.querySelector(
+      const tabContent = element.querySelector(
         `[fabr-notebook-content="${tabId}"]`
       );
 
@@ -43,48 +29,47 @@ class FabrNotebook extends FabrCoreComponent {
       tabContent.classList.add("fabr-notebook-content");
       tabContent.style.display = "none";
 
-      if (tabContent) {
-        this.tabs[tabId] = {
-          tabItem,
-          tabContent,
-        };
-      }
+      this.addInternalEventListener(
+        tabItem,
+        "click",
+        "activateTabEvent",
+        null,
+        tabItem,
+        tabContent,
+        element
+      );
     });
 
-    this.#activateTab(Object.keys(this.tabs)[0]);
+    const firstTabItem = element.querySelector("[fabr-notebook-item]");
+    const firstTabItemId = firstTabItem.getAttribute("fabr-notebook-item");
+    const firstTabContent = element.querySelector(
+      `[fabr-notebook-content="${firstTabItemId}"]`
+    );
+
+    firstTabItem.classList.add("active");
+    firstTabContent.style.display = "block";
   }
 
   /**
-   * Handle the click event.
-   * @param {Event} event - The event object.
+   * Activate a tab by event.
+   * @param {Event} event The event.
+   * @param {HTMLElement} tabItem The tab item.
+   * @param {HTMLElement} tabContent The tab content.
+   * @param {HTMLElement} notebook The notebook.
    */
-  onClick(event) {
-    event.preventDefault();
-    const target = event.target.closest("[fabr-notebook-item]");
+  activateTabEvent(event, tabItem, tabContent, notebook) {
+    const tabItems = notebook.querySelectorAll("[fabr-notebook-item]");
+    const tabContents = notebook.querySelectorAll("[fabr-notebook-content]");
 
-    if (target) {
-      const tabId = target.getAttribute("fabr-notebook-item");
-      this.#activateTab(tabId);
-    }
-  }
+    tabItems.forEach((tabItem) => {
+      tabItem.classList.remove("active");
+    });
 
-  /**
-   * Activate a tab by id.
-   * @param {string} tabId - The tab id.
-   * @private
-   */
-  #activateTab(tabId) {
-    const tab = this.tabs[tabId];
+    tabContents.forEach((tabContent) => {
+      tabContent.style.display = "none";
+    });
 
-    if (!tab.tabItem.classList.contains("active")) {
-      Object.keys(this.tabs).forEach((key) => {
-        const tab = this.tabs[key];
-        tab.tabItem.classList.remove("active");
-        tab.tabContent.style.display = "none";
-      });
-
-      tab.tabItem.classList.add("active");
-      this.animateHelper.fadeIn(tab.tabContent);
-    }
+    tabItem.classList.add("active");
+    this.animateHelper.fadeIn(tabContent, 500);
   }
 }

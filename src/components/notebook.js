@@ -74,16 +74,17 @@ class FabrNotebook extends FabrCoreComponent {
    * @private
    */
   #activateTab(tabId) {
-    Object.keys(this.tabs).forEach((key) => {
-      const tab = this.tabs[key];
+    const tab = this.tabs[tabId];
 
-      if (key === tabId) {
-        tab.tabItem.classList.add("active");
-        this.animateHelper.fadeIn(tab.tabContent);
-      } else {
+    if (!tab.tabItem.classList.contains("active")) {
+      Object.keys(this.tabs).forEach((key) => {
+        const tab = this.tabs[key];
         tab.tabItem.classList.remove("active");
         tab.tabContent.style.display = "none";
-      }
-    });
+      });
+
+      tab.tabItem.classList.add("active");
+      this.animateHelper.fadeIn(tab.tabContent);
+    }
   }
 }

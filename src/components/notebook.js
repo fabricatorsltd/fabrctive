@@ -16,12 +16,12 @@ class FabrNotebook extends FabrCoreComponent {
   /**
    * Render the tabs.
    */
-  render(element) {
-    const tabItems = element.querySelectorAll("[fabr-notebook-item]");
+  render(notebook) {
+    const tabItems = notebook.querySelectorAll("[fabr-notebook-item]");
 
     tabItems.forEach((tabItem) => {
       const tabId = tabItem.getAttribute("fabr-notebook-item");
-      const tabContent = element.querySelector(
+      const tabContent = notebook.querySelector(
         `[fabr-notebook-content="${tabId}"]`
       );
 
@@ -36,13 +36,13 @@ class FabrNotebook extends FabrCoreComponent {
         null,
         tabItem,
         tabContent,
-        element
+        notebook
       );
     });
 
-    const firstTabItem = element.querySelector("[fabr-notebook-item]");
+    const firstTabItem = notebook.querySelector("[fabr-notebook-item]");
     const firstTabItemId = firstTabItem.getAttribute("fabr-notebook-item");
-    const firstTabContent = element.querySelector(
+    const firstTabContent = notebook.querySelector(
       `[fabr-notebook-content="${firstTabItemId}"]`
     );
 

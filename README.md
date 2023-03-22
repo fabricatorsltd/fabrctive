@@ -55,10 +55,6 @@ To use the library in development mode, you need to include all the files manual
     <script src="src/tests/localstorage.js"></script>
 
     <script src="src/fabr.js"></script>
-
-    <script>
-        new Fabr();
-    </script>
 ```
 
 ## Examples
@@ -147,6 +143,7 @@ class FabrCounter extends FabrCoreComponent {
     super();
     this.componentName = "FabrCounter";
     this.selector = "[fabr-counter]";
+    this.componentStyleClass = "fabr-counter";
     this.eventMap = {
       click: "onClick",
     };
@@ -176,15 +173,15 @@ then add it to the `fabr.js` file to make it available:
 
 ```javascript
 ...
-  initComponents() {
-    new FabrForm().init();
-    new FabrLink().init();
-    new FabrCounter().init(); // your component initialization
-    new FabrTooltip().init();
-    new FabrNotebook().init();
-    new FabrTable().init();
-    new FabrAnimator().init();
-    new FabrSnippet().init();
-  }
+  this.components = {
+    form: new FabrForm(),
+    link: new FabrLink(),
+    counter: new FabrCounter(), // your component initialization
+    tooltip: new FabrTooltip(),
+    notebook: new FabrNotebook(),
+    table: new FabrTable(),
+    animator: new FabrAnimator(),
+    snippet: new FabrSnippet(),
+  };
 ...
 ```

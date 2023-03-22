@@ -61,9 +61,12 @@ class FabrCoreComponent extends FabrCore {
    */
   initElements() {
     if (!this.selector) {
+      // @@@IF NOT BUILD@@@
       this.debugger.log(`No selectors defined.`);
+      // @@@ENDIF@@@
       return;
     }
+
     this.elements = document.querySelectorAll(this.selector);
     this.elements.forEach((element) => {
       element.classList.add(this.componentStyleClass);

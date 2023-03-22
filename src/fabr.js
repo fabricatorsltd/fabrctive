@@ -6,7 +6,19 @@ class Fabr extends FabrCore {
   constructor() {
     super();
     console.log("%cFabr initializing...", "color: #00f");
+
+    this.components = {
+      form: new FabrForm(),
+      link: new FabrLink(),
+      counter: new FabrCounter(),
+      tooltip: new FabrTooltip(),
+      notebook: new FabrNotebook(),
+      table: new FabrTable(),
+      animator: new FabrAnimator(),
+      snippet: new FabrSnippet(),
+    };
     this.init();
+
     console.log("%cFabr initialized", "color: #00f");
   }
 
@@ -16,6 +28,32 @@ class Fabr extends FabrCore {
     // @@@IF NOT BUILD@@@
     this.initTests();
     // @@@ENDIF@@@
+  }
+
+  /**
+   * Initializes all of the components in the Fabr library.
+   */
+  initComponents() {
+    for (const cName in this.components) {
+      this.components[cName].init();
+    }
+  }
+
+  /**
+   * Gets a component by name.
+   * @param {string} cName - The name of the component to get.
+   * @returns {FabrComponent} The component.
+   */
+  getComponent(cName) {
+    return this.components[cName];
+  }
+
+  /**
+   * Get all of the components.
+   * @returns {Object} The components.
+   */
+  getComponents() {
+    return this.components;
   }
 
   // @@@IF NOT BUILD@@@
@@ -28,18 +66,6 @@ class Fabr extends FabrCore {
     new SharedMemory2TestComponent().init();
   }
   // @@@ENDIF@@@
-
-  /**
-   * Initializes all of the components in the Fabr library.
-   */
-  initComponents() {
-    new FabrForm().init();
-    new FabrLink().init();
-    new FabrCounter().init();
-    new FabrTooltip().init();
-    new FabrNotebook().init();
-    new FabrTable().init();
-    new FabrAnimator().init();
-    new FabrSnippet().init();
-  }
 }
+
+fabr = new Fabr();

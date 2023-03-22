@@ -17,6 +17,7 @@ class FabrCoreComponent extends FabrCore {
     this.componentStyleClass = "fabr-component";
     this.selector = "";
     this.eventMap = {};
+    this.elements = [];
   }
 
   /**
@@ -30,6 +31,7 @@ class FabrCoreComponent extends FabrCore {
 
     this.initElements();
     this.initEventListeners();
+    this.renderElements();
 
     // @@@IF NOT BUILD@@@
     this.debugger.stop_bench(this);
@@ -107,8 +109,9 @@ class FabrCoreComponent extends FabrCore {
    * @param {string} event - The name of the event to listen for.
    * @param {string} fn - The name of the function to call when the event is triggered.
    * @param {any} [reference] - A reference to pass to the function when it is called. (optional)
+   * @param {any} args - Any additional arguments to pass to the function when it is called.
    */
-  addInternalEventListener(element, event, fn, reference = null) {
+  addInternalEventListener(element, event, fn, reference = null, ...args) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Adding internal event listener for ${event} on ${fn}`);
     // @@@ENDIF@@@
@@ -120,7 +123,29 @@ class FabrCoreComponent extends FabrCore {
       );
       // @@@ENDIF@@@
 
-      this[fn](e, reference);
+      if (reference) {
+        this[fn](e, reference, ...args);
+      } else {
+        this[fn](e, ...args);
+      }
+    });
+  }
+
+  /**
+   * Renders the component elements.
+   */
+  renderElements() {
+    if (this.elements.length === 0) {
+      return;
+    }
+
+    this.elements.forEach((element) => {
+      if (this.render) {
+        // @@@IF NOT BUILD@@@
+        this.debugger.log(`Rendering ${element}`);
+        // @@@ENDIF@@@
+        this.render(element);
+      }
     });
   }
 }

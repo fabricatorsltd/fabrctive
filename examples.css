@@ -100,6 +100,8 @@ button:active {
 
 .fabr-table {
     border-collapse: collapse;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
 }
 
 .fabr-table th,
@@ -111,7 +113,8 @@ button:active {
 .fabr-table th {
     background-color: #f3f2f1;
     text-align: left;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .fabr-table th i {

@@ -29,9 +29,9 @@ class FabrCoreComponent extends FabrCore {
     this.debugger.start_bench(this);
     // @@@ENDIF@@@
 
-    this.initElements();
-    this.initEventListeners();
-    this.renderElements();
+    this.#initElements();
+    this.#initEventListeners();
+    this.#renderElements();
 
     // @@@IF NOT BUILD@@@
     this.debugger.stop_bench(this);
@@ -60,8 +60,9 @@ class FabrCoreComponent extends FabrCore {
 
   /**
    * Initializes the elements for the component.
+   * @private
    */
-  initElements() {
+  #initElements() {
     if (!this.selector) {
       // @@@IF NOT BUILD@@@
       this.debugger.log(`No selectors defined.`);
@@ -77,8 +78,9 @@ class FabrCoreComponent extends FabrCore {
 
   /**
    * Initializes the event listeners for the component.
+   * @private
    */
-  initEventListeners() {
+  #initEventListeners() {
     if (Object.keys(this.eventMap).length === 0) {
       this.debugger.log(`No event listeners defined.`);
       return;
@@ -133,8 +135,9 @@ class FabrCoreComponent extends FabrCore {
 
   /**
    * Renders the component elements.
+   * @private
    */
-  renderElements() {
+  #renderElements() {
     if (this.elements.length === 0) {
       return;
     }

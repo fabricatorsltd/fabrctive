@@ -82,7 +82,9 @@ class FabrCoreComponent extends FabrCore {
    */
   #initEventListeners() {
     if (Object.keys(this.eventMap).length === 0) {
+      // @@@IF NOT BUILD@@@
       this.debugger.log(`No event listeners defined.`);
+      // @@@ENDIF@@@
       return;
     }
 

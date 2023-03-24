@@ -52,4 +52,46 @@ class FabrCore {
         console.error("Error:", error);
       });
   }
+
+  /**
+   * Renders the specified HTML content in the given container element.
+   * @param {string} html - The HTML content to render.
+   * @param {HTMLElement} container - The container element to render the content in.
+   */
+  renderContent(html, container) {
+    container.innerHTML = html;
+
+    // Execute scripts in the global scope
+    const scripts = container.querySelectorAll("script");
+    scripts.forEach((script) => {
+      if (script.innerText) {
+        eval(script.innerText);
+      } else {
+        fetch(script.src).then((response) => {
+          response.text().then((r) => {
+            eval(r);
+          });
+        });
+      }
+    });
+
+    // Set title
+    const title = container.querySelector("title");
+    if (title) {
+      document.title = title.innerText;
+    }
+  }
+
+  /**
+   * Renders the url's content in the given container element.
+   * @param {string} url - The URL to fetch the content from.
+   * @param {HTMLElement} container - The container element to render the content in.
+   */
+  renderUrl(url, container) {
+    this.fetchContent(url)
+      .then((html) => {
+        return this.renderContent(html, container);
+      })
+      .catch((error) => console.error("Error:", error));
+  }
 }

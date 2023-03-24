@@ -10,6 +10,7 @@ class Fabr extends FabrCore {
     this.components = {
       form: new FabrForm(),
       link: new FabrLink(),
+      list: new FabrList(),
       counter: new FabrCounter(),
       tooltip: new FabrTooltip(),
       notebook: new FabrNotebook(),

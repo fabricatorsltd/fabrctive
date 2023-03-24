@@ -36,7 +36,8 @@ class JSCompiler:
 
 def list_from_dir(dir):
     components = []
-    for file in glob.glob(dir+'/*.js'):
+    _dir = os.path.join(os.path.dirname(__file__), "src", dir)
+    for file in glob.glob(_dir + "/*.js"):
         components.append(file)
     return components
 

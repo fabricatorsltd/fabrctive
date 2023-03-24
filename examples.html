@@ -155,6 +155,64 @@
         <div fabr-snippet fabr-snippet-from="#snippet_8"></div>
     </section>
 
+    <section>
+        <h2>Lists</h2>
+
+        <div id="snippet_9">
+            <p>This is a simple list</p>
+            <ul fabr-list fabr-list-name="test_list"></ul>
+            <!--
+                After Fabr is loaded, you can create the list with:
+                <script>
+                    fabr.getComponent("list").newList(
+                        "test_list",
+                        ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+                    )
+                </script>
+            -->
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_9"></div>
+
+        <div id="snippet_10">
+            <p>This list uses a template</p>
+            <ul fabr-list fabr-list-name="test_list_template"></ul>
+            <!--
+                After Fabr is loaded, you can create the list with:
+                <script>
+                    fabr.getComponent("list").newListFromTemplate(
+                        "test_list_template",
+                        [
+                            {
+                                "key": "item1",
+                                "value": "Item 1"
+                            },
+                            {
+                                "key": "item2",
+                                "value": "Item 2"
+                            },
+                            {
+                                "key": "item3",
+                                "value": "Item 3"
+                            },
+                            {
+                                "key": "item4",
+                                "value": "Item 4"
+                            },
+                            {
+                                "key": "item5",
+                                "value": "Item 5"
+                            }
+                        ],
+                        `<b>{{key}}</b> - {{value}}`
+                    )
+                </script>
+            -->
+        </div>
+
+        <div fabr-snippet fabr-snippet-from="#snippet_10"></div>
+    </section>
+
     <script src="src/debugger.js"></script>
     <script src="src/core.js"></script>
 
@@ -168,6 +226,7 @@
     <script src="src/component.js"></script>
     <script src="src/components/form.js"></script>
     <script src="src/components/link.js"></script>
+    <script src="src/components/list.js"></script>
     <script src="src/components/counter.js"></script>
     <script src="src/components/tooltip.js"></script>
     <script src="src/components/notebook.js"></script>
@@ -180,6 +239,39 @@
     <script src="src/tests/sharedmemory_2.js"></script>
 
     <script src="src/fabr.js"></script>
+
+    <script>
+        fabr.getComponent("list").newList(
+            "test_list",
+            ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+        )
+        fabr.getComponent("list").newListFromTemplate(
+            "test_list_template",
+            [
+                {
+                    "key": "item1",
+                    "value": "Item 1"
+                },
+                {
+                    "key": "item2",
+                    "value": "Item 2"
+                },
+                {
+                    "key": "item3",
+                    "value": "Item 3"
+                },
+                {
+                    "key": "item4",
+                    "value": "Item 4"
+                },
+                {
+                    "key": "item5",
+                    "value": "Item 5"
+                }
+            ],
+            `<b>{{key}}</b> - {{value}}`
+        )
+    </script>
 </body>
 
 </html>

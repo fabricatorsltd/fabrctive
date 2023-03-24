@@ -43,7 +43,7 @@ class FabrTable extends FabrCoreComponent {
    */
   #renderSearch(table) {
     const search = document.createElement("input");
-    search.setAttribute("type", "text");
+    search.setAttribute("type", "search");
     search.setAttribute("placeholder", "Search...");
     search.setAttribute("fabr-table-search", "");
     search.classList.add("fabr-table-search");

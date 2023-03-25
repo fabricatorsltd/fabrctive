@@ -114,17 +114,16 @@ class FabrCoreComponent extends FabrCore {
    * @param {string} fn - The name of the function to call when the event is triggered.
    * @param {any} [reference] - A reference to pass to the function when it is called. (optional)
    * @param {any} args - Any additional arguments to pass to the function when it is called.
+   * @returns {EventListener} The event listener that was added.
    */
   addInternalEventListener(element, event, fn, reference = null, ...args) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Adding internal event listener for ${event} on ${fn}`);
     // @@@ENDIF@@@
 
-    element.addEventListener(event, (e) => {
+    const listener = element.addEventListener(event, (e) => {
       // @@@IF NOT BUILD@@@
-      this.debugger.log(
-        `Event ${e.type} triggered on ${fn} for\n\t\t${e.target.outerHTML}`
-      );
+      this.debugger.log(`Event ${e.type} triggered on ${fn}`);
       // @@@ENDIF@@@
 
       if (reference) {
@@ -133,6 +132,22 @@ class FabrCoreComponent extends FabrCore {
         this[fn](e, ...args);
       }
     });
+
+    return listener;
+  }
+
+  /**
+   * Removes an internal event listener from the specified element.
+   * @param {HTMLElement} element - The element to remove the event listener from.
+   * @param {string} event - The name of the event to remove the listener for.
+   * @param {EventListener} listener - The event listener to remove.
+   */
+  removeInternalEventListener(element, event, listener) {
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(`Removing internal event listener for ${event}`);
+    // @@@ENDIF@@@
+
+    element.removeEventListener(event, listener);
   }
 
   /**

@@ -187,7 +187,7 @@ then add it to the `fabr.js` file to make it available:
 ```
 
 ## Executing Scripts in Fabr's Custom Scope
-Fabr provides a custom scope (fbr) to prevent global scope residue and improve document updates. This scope remains the same throughout the entire page and is dropped only after a full refresh. All classes and functions of the library are not part of this scope.
+Fabr provides a custom scope (fbr) to prevent global scope residue and improve document updates. This scope remains the same throughout the entire page and is dropped only after a full refresh. All classes and functions of the library are  part of this scope.
 
 To execute scripts inside the fbr scope, you can use the text/fabr script type. This allows Fabr to keep track of the scripts during the page-cycle, preventing them from running multiple times or before the rendering cycle.
 

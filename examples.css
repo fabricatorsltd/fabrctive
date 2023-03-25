@@ -325,3 +325,7 @@ button:active {
     padding: 10px;
     display: none;
 }
+
+img {
+    max-width: 100%;
+}

@@ -301,3 +301,24 @@ button:active {
 .fabr-selector-input:active {
     outline: none;
 }
+
+.fabr-expander-wrapper {
+    border: 1px solid #eaeaea;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.fabr-expander-header {
+    background: #f3f2f1;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fabr-expander-content {
+    padding: 10px;
+    display: none;
+}

@@ -12,6 +12,7 @@ class Fabr extends FabrCore {
       link: new FabrLink(),
       list: new FabrList(),
       counter: new FabrCounter(),
+      expander: new FabrExpander(),
       tooltip: new FabrTooltip(),
       notebook: new FabrNotebook(),
       table: new FabrTable(),

@@ -2,23 +2,25 @@
  * @classdesc The main entry point for the Fabr library.
  * @class
  */
-class Fabr extends FabrCore {
+fbr.Fabr = class extends fbr.FabrCore {
   constructor() {
     super();
-    console.log("%cFabr initializing...", "color: #00f");
+
+    this.version = "0.1.0";
+    console.log(`%cFabr [${this.version}] initializing...`, "color: #00f");
 
     this.components = {
-      form: new FabrForm(),
-      link: new FabrLink(),
-      list: new FabrList(),
-      counter: new FabrCounter(),
-      expander: new FabrExpander(),
-      tooltip: new FabrTooltip(),
-      notebook: new FabrNotebook(),
-      table: new FabrTable(),
-      animator: new FabrAnimator(),
-      snippet: new FabrSnippet(),
-      selector: new FabrSelector(),
+      form: new fbr.FabrForm(),
+      link: new fbr.FabrLink(),
+      list: new fbr.FabrList(),
+      counter: new fbr.FabrCounter(),
+      expander: new fbr.FabrExpander(),
+      tooltip: new fbr.FabrTooltip(),
+      notebook: new fbr.FabrNotebook(),
+      table: new fbr.FabrTable(),
+      animator: new fbr.FabrAnimator(),
+      snippet: new fbr.FabrSnippet(),
+      selector: new fbr.FabrSelector(),
     };
     this.init();
 
@@ -31,6 +33,26 @@ class Fabr extends FabrCore {
     // @@@IF NOT BUILD@@@
     this.initTests();
     // @@@ENDIF@@@
+
+    this.loadScripts();
+  }
+
+  /**
+   * Reload the Fabr library.
+   */
+  reload() {
+    console.log(
+      "%c\n\n\n\n\n\n------\nReloading Fabr at " +
+        new Date().toLocaleTimeString() +
+        "\n------\n\n\n\n\n\n",
+      "color: #00f"
+    );
+
+    for (const cName in this.components) {
+      this.components[cName].update();
+    }
+
+    this.loadScripts();
   }
 
   /**
@@ -64,11 +86,39 @@ class Fabr extends FabrCore {
    * Initializes all of the tests in the Fabr library.
    */
   initTests() {
-    new LocalStorageTestComponent().init();
-    new SharedMemory1TestComponent().init();
-    new SharedMemory2TestComponent().init();
+    new fbr.LocalStorageTestComponent().init();
+    new fbr.SharedMemory1TestComponent().init();
+    new fbr.SharedMemory2TestComponent().init();
   }
   // @@@ENDIF@@@
-}
 
-fabr = new Fabr();
+  /**
+   * Loads all the page scripts inside the fbr scope.
+   */
+  loadScripts() {
+    const scripts = document.querySelectorAll("script[type='text/fabr']");
+    for (const script of scripts) {
+      const scriptText = script.innerHTML;
+      const scriptFunc = new Function("fbr", scriptText);
+      scriptFunc(fbr);
+    }
+
+    const remoteScripts = document.querySelectorAll(
+      "script[type='text/fabr-remote']"
+    );
+    for (const script of remoteScripts) {
+      const scriptUrl = script.getAttribute("src");
+      this.fetchJsScript(scriptUrl)
+        .then((data) => {
+          const scriptText = data;
+          const scriptFunc = new Function("fbr", scriptText);
+          scriptFunc(fbr);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }
+};
+
+fbr.fabr = new fbr.Fabr();

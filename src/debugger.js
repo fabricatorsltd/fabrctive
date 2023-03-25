@@ -2,7 +2,7 @@
  * @classdesc A class representing a Fabr debugger for logging and benchmarking.
  * @class
  */
-class FabrDebugger {
+fbr.FabrDebugger = class {
   constructor() {
     this.component = null;
     this.helper = null;
@@ -143,4 +143,4 @@ class FabrDebugger {
   success(message, reprX = undefined) {
     this.#logger(message, reprX, "#00b894");
   }
-}
+};

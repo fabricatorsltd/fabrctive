@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrHelperSharedMemory helper.
  * @extends FabrHelper
  */
-class FabrHelperSharedMemory extends FabrHelper {
+fbr.FabrHelperSharedMemory = class extends fbr.FabrHelper {
   constructor() {
     super();
     this.helperName = "SharedMemory";
@@ -20,12 +20,12 @@ class FabrHelperSharedMemory extends FabrHelper {
    * @private
    */
   #getSharedMemory() {
-    if (window.fabrSharedMemory) {
-      return window.fabrSharedMemory;
+    if (fbr._fabrSharedMemory) {
+      return fbr._fabrSharedMemory;
     }
 
-    window.fabrSharedMemory = {};
-    return window.fabrSharedMemory;
+    fbr._fabrSharedMemory = {};
+    return fbr._fabrSharedMemory;
   }
 
   /**
@@ -34,11 +34,11 @@ class FabrHelperSharedMemory extends FabrHelper {
    * @private
    */
   #getRestrictedKeys() {
-    if (window.fabrSharedMemoryRestrictedKeys) {
-      return window.fabrSharedMemoryRestrictedKeys;
+    if (fbr._fabrSharedMemoryRestrictedKeys) {
+      return fbr._fabrSharedMemoryRestrictedKeys;
     }
-    window.fabrSharedMemoryRestrictedKeys = [];
-    return window.fabrSharedMemoryRestrictedKeys;
+    fbr._fabrSharedMemoryRestrictedKeys = [];
+    return fbr._fabrSharedMemoryRestrictedKeys;
   }
 
   /**
@@ -123,4 +123,4 @@ class FabrHelperSharedMemory extends FabrHelper {
     }
     return false;
   }
-}
+};

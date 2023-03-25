@@ -10,6 +10,18 @@
     <h1>Hello 👋</h1>
     <p>You are in a new page!</p>
     <p>Click <a href="./../examples.html" fabr-link>here</a> to go back to the examples page.</p>
+
+    <button onclick="fbr.cleanVanillaJSFunction()">Vanilla JS function</button>
+    <button fabr-counter="myCounter1" fabr-counter-initial-value="0">Fabr counter</button>
+
+    <script type="text/fabr">
+        console.log("Hello from the new page!");
+
+        fbr.cleanVanillaJSFunction = function() {
+            alert("Hello from the new page!");
+        }
+    </script>
+    <script fabr-lib src="../fabr.min.js"></script>
 </body>
 
 </html>

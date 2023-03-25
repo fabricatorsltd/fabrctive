@@ -2,12 +2,12 @@
  * @classdesc Represents a LocalStorageTestComponent component.
  * @extends FabrCoreComponent
  */
-class LocalStorageTestComponent extends FabrCoreComponent {
+fbr.LocalStorageTestComponent = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrLocalStorageTest";
     this.componentType = "test";
-    this.localStorageHelper = new FabrHelperLocalStorage();
+    this.localStorageHelper = new fbr.FabrHelperLocalStorage();
     this.localStorageHelper.init(this);
   }
 
@@ -39,4 +39,4 @@ class LocalStorageTestComponent extends FabrCoreComponent {
     const clearedValue = this.localStorageHelper.getCItem("testKey");
     this.debugger.log(`testKey = ${clearedValue}`); // should output `testKey = undefined
   }
-}
+};

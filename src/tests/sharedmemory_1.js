@@ -2,12 +2,12 @@
  * @classdesc Represents a SharedMemory1TestComponent component.
  * @extends FabrCoreComponent
  */
-class SharedMemory1TestComponent extends FabrCoreComponent {
+fbr.SharedMemory1TestComponent = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "SharedMemory1Test";
     this.componentType = "test";
-    this.sharedMemoryHelper = new FabrHelperSharedMemory();
+    this.sharedMemoryHelper = new fbr.FabrHelperSharedMemory();
     this.sharedMemoryHelper.init(this);
   }
 
@@ -31,4 +31,4 @@ class SharedMemory1TestComponent extends FabrCoreComponent {
     // this set a protected value in the shared memory
     this.sharedMemoryHelper.set("testKey2", "testValue2", true, true);
   }
-}
+};

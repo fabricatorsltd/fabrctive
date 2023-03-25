@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrHelperLocalStorage helper.
  * @extends FabrHelper
  */
-class FabrHelperLocalStorage extends FabrHelper {
+fbr.FabrHelperLocalStorage = class extends fbr.FabrHelper {
   constructor() {
     super();
     this.helperName = "LocalStorage";
@@ -157,4 +157,4 @@ class FabrHelperLocalStorage extends FabrHelper {
 
     this.removeItem(this.component.componentUID);
   }
-}
+};

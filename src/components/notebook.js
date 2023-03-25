@@ -2,14 +2,14 @@
  * @classdesc Represents a FabrNotebook component.
  * @extends FabrCoreComponent
  */
-class FabrNotebook extends FabrCoreComponent {
+fbr.FabrNotebook = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrNotebook";
     this.componentStyleClass = "fabr-notebook";
     this.selector = "[fabr-notebook]";
     this.eventMap = {};
-    this.animateHelper = new FabrHelperAnimate();
+    this.animateHelper = new fbr.FabrHelperAnimate();
     this.animateHelper.init(this);
   }
 
@@ -72,4 +72,4 @@ class FabrNotebook extends FabrCoreComponent {
     tabItem.classList.add("active");
     this.animateHelper.fadeIn(tabContent, 500);
   }
-}
+};

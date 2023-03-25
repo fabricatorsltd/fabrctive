@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrForm component.
  * @extends FabrCoreComponent
  */
-class FabrForm extends FabrCoreComponent {
+fbr.FabrForm = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrForm";
@@ -11,7 +11,7 @@ class FabrForm extends FabrCoreComponent {
     this.eventMap = {
       submit: "onSubmit",
     };
-    this.toastHelper = new FabrHelperToast();
+    this.toastHelper = new fbr.FabrHelperToast();
     this.toastHelper.init(this);
   }
 
@@ -94,4 +94,4 @@ class FabrForm extends FabrCoreComponent {
         console.error("Error:", error);
       });
   }
-}
+};

@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrHelperAnimate helper.
  * @extends FabrHelper
  */
-class FabrHelperAnimate extends FabrHelper {
+fbr.FabrHelperAnimate = class extends fbr.FabrHelper {
   constructor() {
     super();
     this.helperName = "Animate";
@@ -181,4 +181,4 @@ class FabrHelperAnimate extends FabrHelper {
   slideRight(element, duration = 200) {
     this.slide(element, duration, -100, 0, "block");
   }
-}
+};

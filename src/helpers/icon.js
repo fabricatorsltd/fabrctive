@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrHelperIcon helper.
  * @extends FabrHelper
  */
-class FabrHelperIcon extends FabrHelper {
+fbr.FabrHelperIcon = class extends fbr.FabrHelper {
   constructor() {
     super();
     this.helperName = "Icon";
@@ -102,4 +102,4 @@ class FabrHelperIcon extends FabrHelper {
 
     return iconElement;
   }
-}
+};

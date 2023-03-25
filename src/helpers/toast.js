@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrHelperToast helper.
  * @extends FabrHelper
  */
-class FabrHelperToast extends FabrHelper {
+fbr.FabrHelperToast = class extends fbr.FabrHelper {
   constructor() {
     super();
     this.helperName = "Toast";
@@ -37,4 +37,4 @@ class FabrHelperToast extends FabrHelper {
       toast.remove();
     }, duration);
   }
-}
+};

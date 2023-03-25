@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrList component.
  * @extends FabrList
  */
-class FabrList extends FabrCoreComponent {
+fbr.FabrList = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrList";
@@ -62,4 +62,4 @@ class FabrList extends FabrCoreComponent {
       list.appendChild(li);
     });
   }
-}
+};

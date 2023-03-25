@@ -2,10 +2,10 @@
  * @classdesc Provides common functionality that can be shared by all components in the Fabr library.
  * @class
  */
-class FabrHelper {
+fbr.FabrHelper = class {
   constructor() {
     // @@@IF NOT BUILD@@@
-    this.debugger = new FabrDebugger();
+    this.debugger = new fbr.FabrDebugger();
     // @@@ENDIF@@@
 
     this.helperUID = Math.random().toString(36).substr(2, 9);
@@ -24,4 +24,4 @@ class FabrHelper {
     this.debugger.registerHelper(this);
     // @@@ENDIF@@@
   }
-}
+};

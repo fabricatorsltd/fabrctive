@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrAnimator component.
  * @extends FabrCoreComponent
  */
-class FabrAnimator extends FabrCoreComponent {
+fbr.FabrAnimator = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrAnimator";
@@ -14,7 +14,7 @@ class FabrAnimator extends FabrCoreComponent {
       mouseout: "onAnim",
     };
     this.animations = {};
-    this.animateHelper = new FabrHelperAnimate();
+    this.animateHelper = new fbr.FabrHelperAnimate();
     this.animateHelper.init(this);
   }
 
@@ -45,4 +45,4 @@ class FabrAnimator extends FabrCoreComponent {
 
     this.animateHelper.animate(element, animationType);
   }
-}
+};

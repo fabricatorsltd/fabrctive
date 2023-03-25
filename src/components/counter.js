@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrCounter component that counts and displays a value
  * @extends FabrCoreComponent
  */
-class FabrCounter extends FabrCoreComponent {
+fbr.FabrCounter = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrCounter";
@@ -42,4 +42,4 @@ class FabrCounter extends FabrCoreComponent {
       }
     }
   }
-}
+};

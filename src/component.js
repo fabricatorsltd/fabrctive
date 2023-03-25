@@ -3,12 +3,12 @@
  * @class
  * @extends FabrCore
  */
-class FabrCoreComponent extends FabrCore {
+fbr.FabrCoreComponent = class extends fbr.FabrCore {
   constructor() {
     super();
 
     // @@@IF NOT BUILD@@@
-    this.debugger = new FabrDebugger();
+    this.debugger = new fbr.FabrDebugger();
     // @@@ENDIF@@@
 
     this.componentUID = Math.random().toString(36).substr(2, 9);
@@ -18,6 +18,7 @@ class FabrCoreComponent extends FabrCore {
     this.selector = "";
     this.eventMap = {};
     this.elements = [];
+    this.renderedElements = [];
   }
 
   /**
@@ -36,6 +37,17 @@ class FabrCoreComponent extends FabrCore {
     // @@@IF NOT BUILD@@@
     this.debugger.stop_bench(this);
     // @@@ENDIF@@@
+  }
+
+  /**
+   * Get updates if the page has changed.
+   */
+  update() {
+    // this does not reinitialize the component, it just look for new elements
+    // and adds them to the this.elements array and adds the event listeners
+    // to them
+    this.#initElements();
+    this.#initEventListeners();
   }
 
   /**
@@ -72,7 +84,11 @@ class FabrCoreComponent extends FabrCore {
 
     this.elements = document.querySelectorAll(this.selector);
     this.elements.forEach((element) => {
+      if (this.renderedElements.includes(element)) {
+        return;
+      }
       element.classList.add(this.componentStyleClass);
+      this.renderedElements.push(element);
     });
   }
 
@@ -168,4 +184,4 @@ class FabrCoreComponent extends FabrCore {
       }
     });
   }
-}
+};

@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrLink component.
  * @extends FabrCoreComponent
  */
-class FabrLink extends FabrCoreComponent {
+fbr.FabrLink = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrLink";
@@ -52,4 +52,4 @@ class FabrLink extends FabrCoreComponent {
   onMouseOver(event) {
     console.log("Mouse Over on:", event.target);
   }
-}
+};

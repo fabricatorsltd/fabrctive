@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrSnippet component.
  * @extends FabrCoreComponent
  */
-class FabrSnippet extends FabrCoreComponent {
+fbr.FabrSnippet = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "Snippet";
@@ -10,11 +10,11 @@ class FabrSnippet extends FabrCoreComponent {
     this.selector = "[fabr-snippet]";
     this.eventMap = {};
 
-    this.iconHelper = new FabrHelperIcon();
+    this.iconHelper = new fbr.FabrHelperIcon();
     this.iconHelper.init(this);
     this.iconHelper.setIconsLibraryMaterial();
 
-    this.toastHelper = new FabrHelperToast();
+    this.toastHelper = new fbr.FabrHelperToast();
     this.toastHelper.init(this);
   }
 
@@ -103,4 +103,4 @@ class FabrSnippet extends FabrCoreComponent {
         );
       });
   }
-}
+};

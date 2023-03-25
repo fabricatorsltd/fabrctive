@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrTable component.
  * @extends FabrCoreComponent
  */
-class FabrTable extends FabrCoreComponent {
+fbr.FabrTable = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "Table";
@@ -10,7 +10,7 @@ class FabrTable extends FabrCoreComponent {
     this.selector = "[fabr-table]";
     this.eventMap = {};
 
-    this.iconHelper = new FabrHelperIcon();
+    this.iconHelper = new fbr.FabrHelperIcon();
     this.iconHelper.init(this);
     this.iconHelper.setIconsLibraryMaterial();
   }
@@ -144,4 +144,4 @@ class FabrTable extends FabrCoreComponent {
       this.#searchTable(target, table);
     }
   }
-}
+};

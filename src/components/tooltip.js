@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrTooltip component.
  * @extends FabrCoreComponent
  */
-class FabrTooltip extends FabrCoreComponent {
+fbr.FabrTooltip = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrTooltip";
@@ -12,7 +12,7 @@ class FabrTooltip extends FabrCoreComponent {
       mouseenter: "onMouseEnter",
       mouseleave: "onMouseLeave",
     };
-    this.animateHelper = new FabrHelperAnimate();
+    this.animateHelper = new fbr.FabrHelperAnimate();
     this.animateHelper.init(this);
   }
 
@@ -50,4 +50,4 @@ class FabrTooltip extends FabrCoreComponent {
       this.animateHelper.fadeOut(tooltip, true);
     });
   }
-}
+};

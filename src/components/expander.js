@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrExpander component.
  * @extends FabrExpander
  */
-class FabrExpander extends FabrCoreComponent {
+fbr.FabrExpander = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrExpander";
@@ -10,10 +10,10 @@ class FabrExpander extends FabrCoreComponent {
     this.selector = "[fabr-expander]";
     this.eventMap = {};
 
-    this.animateHelper = new FabrHelperAnimate();
+    this.animateHelper = new fbr.FabrHelperAnimate();
     this.animateHelper.init(this);
 
-    this.iconHelper = new FabrHelperIcon();
+    this.iconHelper = new fbr.FabrHelperIcon();
     this.iconHelper.init(this);
     this.iconHelper.setIconsLibraryMaterial();
   }
@@ -71,4 +71,4 @@ class FabrExpander extends FabrCoreComponent {
     content.classList.add("fabr-expander-content-open");
     icon.textContent = "keyboard_arrow_up";
   }
-}
+};

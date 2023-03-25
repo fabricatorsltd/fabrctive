@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrHelperWatcher helper.
  * @extends FabrHelper
  */
-class FabrHelperWatcher extends FabrHelper {
+fbr.FabrHelperWatcher = class extends fbr.FabrHelper {
   constructor() {
     super();
     this.helperName = "Watcher";
@@ -60,4 +60,4 @@ class FabrHelperWatcher extends FabrHelper {
     }
     return result;
   }
-}
+};

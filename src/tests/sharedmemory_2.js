@@ -2,12 +2,12 @@
  * @classdesc Represents a SharedMemory2TestComponent component.
  * @extends FabrCoreComponent
  */
-class SharedMemory2TestComponent extends FabrCoreComponent {
+fbr.SharedMemory2TestComponent = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "SharedMemory2Test";
     this.componentType = "test";
-    this.sharedMemoryHelper = new FabrHelperSharedMemory();
+    this.sharedMemoryHelper = new fbr.FabrHelperSharedMemory();
     this.sharedMemoryHelper.init(this);
   }
 
@@ -31,4 +31,4 @@ class SharedMemory2TestComponent extends FabrCoreComponent {
     // this tries to remove a protected value from the shared memory
     this.sharedMemoryHelper.remove("testKey2"); // should output `testKey2 is protected and cannot be removed`
   }
-}
+};

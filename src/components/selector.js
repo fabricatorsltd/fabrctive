@@ -2,7 +2,7 @@
  * @classdesc Represents a FabrSelector component.
  * @extends FabrCoreComponent
  */
-class FabrSelector extends FabrCoreComponent {
+fbr.FabrSelector = class extends fbr.FabrCoreComponent {
   constructor() {
     super();
     this.componentName = "FabrSelector";
@@ -10,10 +10,10 @@ class FabrSelector extends FabrCoreComponent {
     this.selector = "[fabr-selector]";
     this.eventMap = {};
 
-    this.animateHelper = new FabrHelperAnimate();
+    this.animateHelper = new fbr.FabrHelperAnimate();
     this.animateHelper.init(this);
 
-    this.iconHelper = new FabrHelperIcon();
+    this.iconHelper = new fbr.FabrHelperIcon();
     this.iconHelper.init(this);
     this.iconHelper.setIconsLibraryMaterial();
   }
@@ -232,4 +232,4 @@ class FabrSelector extends FabrCoreComponent {
       }
     }
   }
-}
+};

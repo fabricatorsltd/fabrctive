@@ -138,7 +138,7 @@ should have the `.js` extension and contain a class that extends the `FabrCoreCo
 This is an example of a component that displays a counter:
 
 ```javascript
-class FabrCounter extends FabrCoreComponent {
+fbr.FabrCounter = class extends fbr.FabrCoreComponent{
   constructor() {
     super();
     this.componentName = "FabrCounter";

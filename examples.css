@@ -315,7 +315,10 @@ button:active {
     gap: 10px;
     padding: 10px 20px;
     align-items: center;
-    cursor: pointer;
+}
+
+.fabr-expander-header:hover {
+    background: #eaeaea;
 }
 
 .fabr-expander-content {

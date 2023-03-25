@@ -17,6 +17,7 @@ class Fabr extends FabrCore {
       table: new FabrTable(),
       animator: new FabrAnimator(),
       snippet: new FabrSnippet(),
+      selector: new FabrSelector(),
     };
     this.init();
 

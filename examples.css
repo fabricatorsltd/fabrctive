@@ -2,7 +2,7 @@ body {
     font-family: "Work Sans", sans-serif;
     padding: 16px;
     max-width: 990px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
 }
 
 h1,
@@ -234,4 +234,71 @@ button:active {
 .fabr-snippet:hover .fabr-snippet-icon {
     opacity: 1;
     pointer-events: initial;
+}
+
+.fabr-selector-dropdown {
+    position: relative;
+}
+
+.fabr-selector-input {
+    display: block;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.fabr-selector-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-top: 0;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 9999;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.fabr-selector-item {
+    padding: 12px;
+    cursor: default;
+}
+
+.fabr-selector-item:hover {
+    background-color: #f3f2f1;
+}
+
+.fabr-selector-item.active {
+    background-color: #0078d7;
+    color: #ffffff;
+}
+
+.fabr-selector-item.active:hover {
+    background-color: #0063b1;
+}
+
+.fabr-selector-search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #d1d1d1;
+}
+
+.fabr-selector-wrapper {
+    display: inline-block;
+}
+
+.fabr-selector-input:focus,
+.fabr-selector-input:active {
+    outline: none;
 }

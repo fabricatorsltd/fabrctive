@@ -207,3 +207,37 @@ After initializing Fabr, you can add a script inside the fbr scope in the follow
 By default, Fabr will automatically look for scripts with the `text/fabr` type and execute them inside the fbr scope. This ensures that your scripts are properly tracked and managed by Fabr during the page lifecycle.
 
 Note that when executing scripts inside the fbr scope, it's important to avoid creating variables or functions in the global scope, as this can cause unwanted side effects. Instead, use the fbr scope to define any variables or functions needed for your script. You can also make your own custom scope inside the fbr one, to avoid messing with the fbr scope itself. In the near future, every Fabr class and function, will be prefixed with the `_` character, to avoid any possible conflicts with user-defined functions.
+
+## Components' Signals
+Fabr provides a way to communicate between components using signals. This allows you to create a more reactive and dynamic web application.
+
+### Signals' Table
+The following table shows all the signals that are currently available in Fabr:
+
+| Component | Signal | Description |
+| --- | --- | --- |
+| FabrCounter | `fabr-counter:incremented` | Emitted when the counter is incremented. |
+
+### Usage
+First you need to tag the elements you want to communicate, using the `[fabr-com-id]` attribute. This attribute should contain a unique identifier for the element. Then you can ask the `Fabr` class to give you access to the element instance from its component.
+
+The following is an example of a `FabrCounter` which shows an alert when the counter increments:
+
+```html
+<button fabr-counter="my-counter" fabr-com-id="my-counter">Count!</button>
+```
+
+and the following is the [fabr-scoped script](#executing-scripts-in-fabrs-custom-scope) that handles the signal:
+
+```javascript
+const obj = fbr.fabr.getComponentByComId("c1")
+fbr.myFunc = function (event) {
+    alert("Counter value: " + event.detail)
+}
+obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
+```
+
+as you can see, the `connect` function takes three arguments: the signal name, the element that
+emits the signal, and the function that handles the signal. The function receives the event object
+as an argument and the signal data is stored in the `event.detail` property.
+

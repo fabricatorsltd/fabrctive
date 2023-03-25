@@ -32,9 +32,17 @@
 
     <section>
         <h2>Counters</h2>
+        <p>First counter has a signal connection which shows an alert with the value after the increment.</p>
 
         <div id="snippet_0">
-            <button fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
+            <button fabr-com-id="c1" fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
+            <!-- After Fabr is loaded, connect the signal:
+                const obj = fbr.fabr.getComponentByComId("c1")
+                fbr.myFunc = function (event) {
+                    alert("Counter value: " + event.detail)
+                }
+                obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
+            -->
             <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
             <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
         </div>
@@ -46,7 +54,6 @@
 
     <section>
         <h2>Tooltips</h2>
-
         <div id="snippet_1">
             <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
         </div>
@@ -343,6 +350,12 @@
             ],
             `<b>{{key}}</b> - {{value}}`
         )
+
+        const obj = fbr.fabr.getComponentByComId("c1")
+        fbr.myFunc = function (event) {
+            alert("Counter value: " + event.detail)
+        }
+        obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
     </script>
 
     <script fabr-lib src="src/fabr.js"></script>

@@ -118,7 +118,19 @@ fbr.Fabr = class extends fbr.FabrCore {
         });
     }
   }
+
+  /**
+   * Get component by ComID.
+   * @param {string} comId - The ComID of the component.
+   * @returns {object} The element and component.
+   */
+  getComponentByComId(comId) {
+    if (comId in fbr.comIDs) {
+      return fbr.comIDs[comId];
+    }
+  }
 };
 
+fbr.comIDs = {};
 fbr.fabr = new fbr.Fabr();
 fbr.fabr.init();

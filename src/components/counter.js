@@ -40,6 +40,8 @@ fbr.FabrCounter = class extends fbr.FabrCoreComponent {
         this.counters[counterId] = { value: initialValue + 1 };
         target.innerText = this.counters[counterId].value;
       }
+
+      this.emit("fabr-counter:incremented", event.target, target.innerText);
     }
   }
 };

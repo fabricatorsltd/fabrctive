@@ -22,7 +22,6 @@ fbr.Fabr = class extends fbr.FabrCore {
       snippet: new fbr.FabrSnippet(),
       selector: new fbr.FabrSelector(),
     };
-    this.init();
 
     console.log("%cFabr initialized", "color: #00f");
   }
@@ -122,3 +121,4 @@ fbr.Fabr = class extends fbr.FabrCore {
 };
 
 fbr.fabr = new fbr.Fabr();
+fbr.fabr.init();

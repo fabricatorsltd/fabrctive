@@ -185,3 +185,25 @@ then add it to the `fabr.js` file to make it available:
   };
 ...
 ```
+
+## Executing Scripts in Fabr's Custom Scope
+Fabr provides a custom scope (fbr) to prevent global scope residue and improve document updates. This scope remains the same throughout the entire page and is dropped only after a full refresh. All classes and functions of the library are not part of this scope.
+
+To execute scripts inside the fbr scope, you can use the text/fabr script type. This allows Fabr to keep track of the scripts during the page-cycle, preventing them from running multiple times or before the rendering cycle.
+
+### Usage
+After initializing Fabr, you can add a script inside the fbr scope in the following way:
+
+```html
+<script type="text/fabr">
+  fbr.MyFunction = function() {
+    console.log("Hello World!");
+  }
+
+  fbr.MyFunction();
+</script>
+```
+
+By default, Fabr will automatically look for scripts with the `text/fabr` type and execute them inside the fbr scope. This ensures that your scripts are properly tracked and managed by Fabr during the page lifecycle.
+
+Note that when executing scripts inside the fbr scope, it's important to avoid creating variables or functions in the global scope, as this can cause unwanted side effects. Instead, use the fbr scope to define any variables or functions needed for your script. You can also make your own custom scope inside the fbr one, to avoid messing with the fbr scope itself. In the near future, every Fabr class and function, will be prefixed with the `_` character, to avoid any possible conflicts with user-defined functions.

@@ -312,9 +312,7 @@
     <script fabr-lib src="src/tests/sharedmemory_1.js"></script>
     <script fabr-lib src="src/tests/sharedmemory_2.js"></script>
 
-    <script fabr-lib src="src/fabr.js"></script>
-
-    <script>
+    <script type="text/fabr">
         fbr.fabr.getComponent("list").newList(
             "test_list",
             ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
@@ -346,6 +344,8 @@
             `<b>{{key}}</b> - {{value}}`
         )
     </script>
+
+    <script fabr-lib src="src/fabr.js"></script>
 </body>
 
 </html>

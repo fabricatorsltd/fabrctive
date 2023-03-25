@@ -14,7 +14,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {string} animation - The animation to use.
    * @param {number} duration - The duration of the animation.
    */
-  animate(element, animation, duration = 400) {
+  animate(element, animation, duration = 200) {
     switch (animation) {
       case "fadeIn":
         this.fadeIn(element, duration);
@@ -88,7 +88,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {HTMLElement} element - The element to fade in.
    * @param {number} duration - The duration of the fade.
    */
-  fadeIn(element, duration = 400) {
+  fadeIn(element, duration = 200) {
     this.fade(element, duration, 0, 1, "block");
   }
 
@@ -97,7 +97,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {HTMLElement} element - The element to fade out.
    * @param {number} duration - The duration of the fade.
    */
-  fadeOut(element, remove = false, duration = 400) {
+  fadeOut(element, remove = false, duration = 200) {
     this.fade(element, duration, 1, 0, "block", remove);
   }
 
@@ -151,7 +151,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {HTMLElement} element - The element to slide.
    * @param {number} duration - The duration of the slide.
    */
-  slideUp(element, duration = 400) {
+  slideUp(element, duration = 200) {
     this.slide(element, duration, 0, -100, "block");
   }
 
@@ -160,7 +160,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {HTMLElement} element - The element to slide.
    * @param {number} duration - The duration of the slide.
    */
-  slideDown(element, duration = 400) {
+  slideDown(element, duration = 200) {
     this.slide(element, duration, -100, 0, "block");
   }
 
@@ -169,7 +169,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {HTMLElement} element - The element to slide.
    * @param {number} duration - The duration of the slide.
    */
-  slideLeft(element, duration = 400) {
+  slideLeft(element, duration = 200) {
     this.slide(element, duration, 0, -100, "block");
   }
 
@@ -178,7 +178,7 @@ class FabrHelperAnimate extends FabrHelper {
    * @param {HTMLElement} element - The element to slide.
    * @param {number} duration - The duration of the slide.
    */
-  slideRight(element, duration = 400) {
+  slideRight(element, duration = 200) {
     this.slide(element, duration, -100, 0, "block");
   }
 }

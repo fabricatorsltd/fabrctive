@@ -148,7 +148,6 @@ fbr.FabrCarousel = class extends fbr.FabrCoreComponent {
   setSlide(carousel, index) {
     const slides = carousel.querySelectorAll("[fabr-carousel-slide]");
 
-    console.log(slides);
     if (index === -1) {
       index = carousel.activeSlide + 1;
     } else if (index === -2) {

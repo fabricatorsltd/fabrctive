@@ -521,7 +521,7 @@ li.fabr-summary-item-wrapper-active>a {
 }
 
 .content {
-    width: calc(100% - 260pxpx - 40px);
+    width: calc(100% - 260px - 40px);
 }
 
 @media (max-width: 1000px) {

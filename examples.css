@@ -329,3 +329,13 @@ button:active {
 img {
     max-width: 100%;
 }
+
+.splitter {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.splitter>div {
+    flex: 1;
+}

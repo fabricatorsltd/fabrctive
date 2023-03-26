@@ -21,7 +21,8 @@
 
         <div id="snippet__0">
             <div fabr-expander fabr-expander-title="Secret content">
-                <img src="https://media1.giphy.com/media/kyoI9nk0n3PMEM84B8/giphy.gif" alt="Secret content">
+                <img fabr-image fabr-image-options="managed"
+                    src="https://media1.giphy.com/media/kyoI9nk0n3PMEM84B8/giphy.gif" alt="Secret content">
             </div>
         </div>
 
@@ -292,6 +293,20 @@
         </div>
     </section>
 
+    <section>
+        <h2>Images</h2>
+        <p>This image appears only when in the viewport</p>
+
+        <div class="splitter" id="snippet_12">
+            <img fabr-image src="https://media2.giphy.com/media/t7FlnyIbYGXYhg3YYt/giphy.gif"
+                fabr-image-options="managed" />
+        </div>
+
+        <div fabr-expander fabr-expander-title="Show code">
+            <div fabr-snippet fabr-snippet-from="#snippet_12"></div>
+        </div>
+    </section>
+
     <script fabr-lib src="src/core.js"></script>
     <script fabr-lib src="src/debugger.js"></script>
 
@@ -306,6 +321,7 @@
     <script fabr-lib src="src/components/animator.js"></script>
     <script fabr-lib src="src/components/counter.js"></script>
     <script fabr-lib src="src/components/expander.js"></script>
+    <script fabr-lib src="src/components/image.js"></script>
     <script fabr-lib src="src/components/form.js"></script>
     <script fabr-lib src="src/components/link.js"></script>
     <script fabr-lib src="src/components/list.js"></script>

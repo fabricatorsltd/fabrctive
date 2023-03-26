@@ -13,6 +13,7 @@ fbr.Fabr = class extends fbr.FabrCore {
       form: new fbr.FabrForm(),
       link: new fbr.FabrLink(),
       list: new fbr.FabrList(),
+      carousel: new fbr.FabrCarousel(),
       counter: new fbr.FabrCounter(),
       expander: new fbr.FabrExpander(),
       image: new fbr.FabrImage(),

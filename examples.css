@@ -339,3 +339,107 @@ img {
 .splitter>div {
     flex: 1;
 }
+
+.fabr-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fabr-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.fabr-carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fabr-carousel-slide-active {
+    opacity: 1;
+}
+
+.fabr-carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.fabr-carousel-control-prev,
+.fabr-carousel-control-next {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(243 242 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fabr-carousel-control-prev:hover,
+.fabr-carousel-control-next:hover {
+    background-color: rgb(234 234 234);
+}
+
+.fabr-carousel-control-prev {
+    margin-left: 20px;
+}
+
+.fabr-carousel-control-next {
+    margin-right: 20px;
+}
+
+.fabr-carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.fabr-carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(243 242 241);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.fabr-carousel-indicator:hover {
+    background-color: rgb(234 234 234);
+}
+
+.fabr-carousel-indicator-active,
+.fabr-carousel-control-prev:active,
+.fabr-carousel-control-next:active,
+.fabr-carousel-control-prev:focus,
+.fabr-carousel-control-next:focus {
+    background-color: rgb(173 173 173);
+}

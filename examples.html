@@ -32,6 +32,28 @@
     </section>
 
     <section>
+        <h2>Carousel</h2>
+
+        <div id="snippet__1">
+            <div fabr-carousel>
+                <div fabr-carousel-slide>
+                    <h1>Slide 1</h1>
+                </div>
+                <div fabr-carousel-slide>
+                    <h1>Slide 2</h1>
+                </div>
+                <div fabr-carousel-slide>
+                    <h1>Slide 3</h1>
+                </div>
+            </div>
+        </div>
+
+        <div fabr-expander fabr-expander-title="Show code">
+            <div fabr-snippet fabr-snippet-from="#snippet__1"></div>
+        </div>
+    </section>
+
+    <section>
         <h2>Counters</h2>
         <p>First counter has a signal connection which shows an alert with the value after the increment.</p>
 
@@ -318,6 +340,7 @@
 
     <script fabr-lib src="src/component.js"></script>
     <script fabr-lib src="src/components/animator.js"></script>
+    <script fabr-lib src="src/components/carousel.js"></script>
     <script fabr-lib src="src/components/counter.js"></script>
     <script fabr-lib src="src/components/expander.js"></script>
     <script fabr-lib src="src/components/image.js"></script>

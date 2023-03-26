@@ -3,9 +3,6 @@ body {
     padding: 16px;
     max-width: 990px;
     margin: 0 auto 100px;
-}
-
-body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -520,4 +517,16 @@ li.fabr-summary-item-wrapper-active>a {
 
 .fabr-summary-item-has-nested.fabr-summary-item-nested-open {
     background-color: #ebebeb;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fabr-summary-wrapper {
+        width: 100%;
+        position: initial;
+    }
 }

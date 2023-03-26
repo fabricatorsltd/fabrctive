@@ -62,7 +62,6 @@ fbr.FabrSelector = class extends fbr.FabrCoreComponent {
       list,
       "keydown",
       "onKeyNavigationEvent",
-      null,
       selector,
       input
     );
@@ -71,24 +70,16 @@ fbr.FabrSelector = class extends fbr.FabrCoreComponent {
       input,
       "keydown",
       "onKeyNavigationEvent",
-      null,
       selector,
       input
     );
 
-    this.addInternalEventListener(
-      input,
-      "input",
-      "filterOptionsEvent",
-      null,
-      list
-    );
+    this.addInternalEventListener(input, "input", "filterOptionsEvent", list);
 
     this.addInternalEventListener(
       searchWrapper,
       "click",
       "showDropdownEvent",
-      null,
       list
     );
 
@@ -96,7 +87,6 @@ fbr.FabrSelector = class extends fbr.FabrCoreComponent {
       list,
       "click",
       "selectOptionEvent",
-      null,
       selector,
       input,
       list
@@ -106,7 +96,6 @@ fbr.FabrSelector = class extends fbr.FabrCoreComponent {
       document,
       "click",
       "hideDropdownEvent",
-      null,
       wrapper,
       list
     );

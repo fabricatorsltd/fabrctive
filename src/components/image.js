@@ -33,21 +33,13 @@ fbr.FabrImage = class extends fbr.FabrCoreComponent {
         document,
         "scroll",
         "manageImageOnScroll",
-        null,
         image
       );
-      this.addInternalEventListener(
-        window,
-        "resize",
-        "manageImage",
-        null,
-        image
-      );
+      this.addInternalEventListener(window, "resize", "manageImage", image);
       this.addInternalEventListener(
         window,
         "orientationchange",
         "manageImage",
-        null,
         image
       );
     }

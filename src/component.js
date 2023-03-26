@@ -90,7 +90,6 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
       }
 
       if (element.getAttribute("fabr-com-id")) {
-        console.log(fbr);
         fbr.comIDs[element.getAttribute("fabr-com-id")] = {
           component: this,
           element: element,
@@ -138,11 +137,10 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
    * @param {HTMLElement} element - The element to add the event listener to.
    * @param {string} event - The name of the event to listen for.
    * @param {string} fn - The name of the function to call when the event is triggered.
-   * @param {any} [reference] - A reference to pass to the function when it is called. (optional)
    * @param {any} args - Any additional arguments to pass to the function when it is called.
    * @returns {EventListener} The event listener that was added.
    */
-  addInternalEventListener(element, event, fn, reference = null, ...args) {
+  addInternalEventListener(element, event, fn, ...args) {
     // @@@IF NOT BUILD@@@
     this.debugger.log(`Adding internal event listener for ${event} on ${fn}`);
     // @@@ENDIF@@@
@@ -152,11 +150,7 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
       this.debugger.log(`Event ${e.type} triggered on ${fn}`);
       // @@@ENDIF@@@
 
-      if (reference) {
-        this[fn](e, reference, ...args);
-      } else {
-        this[fn](e, ...args);
-      }
+      this[fn](e, ...args);
     });
 
     return listener;
@@ -254,8 +248,6 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
     const rect = el.getBoundingClientRect();
     const elHeight = el.offsetHeight;
     const elWidth = el.offsetWidth;
-
-    console.log(elHeight, elWidth);
 
     return (
       rect.top >= -elHeight &&

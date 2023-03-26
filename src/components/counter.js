@@ -1,5 +1,5 @@
 /**
- * @classdesc Represents a FabrCounter component that counts and displays a value
+ * @classdesc Represents a FabrCounter component.
  * @extends FabrCoreComponent
  */
 fbr.FabrCounter = class extends fbr.FabrCoreComponent {

@@ -57,7 +57,7 @@ fbr.FabrNotebook = class extends fbr.FabrCoreComponent {
    * @param {HTMLElement} tabContent The tab content.
    * @param {HTMLElement} notebook The notebook.
    */
-  activateTabEvent(event, tabItem, tabContent, notebook) {
+  activateTabEvent(_, tabItem, tabContent, notebook) {
     const tabItems = notebook.querySelectorAll("[fabr-notebook-item]");
     const tabContents = notebook.querySelectorAll("[fabr-notebook-content]");
 

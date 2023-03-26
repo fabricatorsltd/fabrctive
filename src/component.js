@@ -244,4 +244,27 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
 
     element.removeEventListener(signal, listener);
   }
+
+  /**
+   * Check if an element is in viewport.
+   * @param {HTMLElement} el The element.
+   * @returns {boolean} True if the element is in viewport, false otherwise.
+   */
+  isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const elHeight = el.offsetHeight;
+    const elWidth = el.offsetWidth;
+
+    console.log(elHeight, elWidth);
+
+    return (
+      rect.top >= -elHeight &&
+      rect.left >= -elWidth &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) +
+          elHeight &&
+      rect.right <=
+        (window.innerWidth || document.documentElement.clientWidth) + elWidth
+    );
+  }
 };

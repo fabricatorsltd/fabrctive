@@ -267,4 +267,14 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
         (window.innerWidth || document.documentElement.clientWidth) + elWidth
     );
   }
+
+  /**
+   * Get element settings defined in the fabr-settings attribute.
+   * @param {HTMLElement} element The element.
+   * @returns {Array} An array of settings.
+   */
+  getElementSettings(element) {
+    const settings = element.getAttribute("fabr-settings");
+    return settings ? settings.split("|") : [];
+  }
 };

@@ -18,19 +18,17 @@ fbr.FabrImage = class extends fbr.FabrCoreComponent {
    * @param {HTMLElement} image The image.
    */
   render(image) {
-    const options = image.getAttribute("fabr-image-options");
+    const settings = this.getElementSettings(image);
 
     image.width = image.width;
     image.height = image.height;
     image.realSrc = image.src;
 
-    if (!options) {
+    if (settings.length === 0) {
       return;
     }
 
-    const optionsArray = options.split("|");
-
-    if (optionsArray.includes("managed")) {
+    if (settings.includes("managed")) {
       this.addInternalEventListener(
         document,
         "scroll",

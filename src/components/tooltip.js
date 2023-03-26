@@ -22,6 +22,7 @@ fbr.FabrTooltip = class extends fbr.FabrCoreComponent {
    */
   onMouseEnter(event) {
     const target = event.target.closest("[fabr-tooltip]");
+
     if (target) {
       const tooltipId = target.getAttribute("fabr-tooltip");
       const tooltip = document.createElement("div");

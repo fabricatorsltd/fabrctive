@@ -20,18 +20,18 @@ fbr.FabrTable = class extends fbr.FabrCoreComponent {
    */
   render(table) {
     const wrapper = document.createElement("div");
-    const options = table.getAttribute("fabr-table-options").split("|");
+    const settings = this.getElementSettings(table);
 
     wrapper.classList.add("fabr-table-wrapper");
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
     table.activeElement = wrapper;
 
-    if (options.includes("search")) {
+    if (settings.includes("search")) {
       this.#renderSearch(table);
     }
 
-    if (options.includes("sort")) {
+    if (settings.includes("sort")) {
       this.#renderSort(table);
     }
   }

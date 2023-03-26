@@ -5,6 +5,13 @@ body {
     margin: 0 auto 100px;
 }
 
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 h1,
 h2,
 h3,

@@ -12,321 +12,330 @@
 
 <body>
 
-    <h1>Examples</h1>
+    <div class="container">
+        <div fabr-summary class="summary"></div>
+        <div class="content">
+            <section>
+                <h2 fabr-summary-title>Expanders</h2>
+                <p>Every example source code in this page is hidden by default using the <code>fabr-expander</code>
+                    directive.
+                    Click on the title to show the code.</p>
 
-    <section>
-        <h2>Expanders</h2>
-        <p>Every example source code in this page is hidden by default using the <code>fabr-expander</code> directive.
-            Click on the title to show the code.</p>
-
-        <div id="snippet__0">
-            <div fabr-expander fabr-expander-title="Secret content">
-                <img fabr-image fabr-settings="managed"
-                    src="https://media1.giphy.com/media/kyoI9nk0n3PMEM84B8/giphy.gif" alt="Secret content">
-            </div>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet__0"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Carousel</h2>
-
-        <div id="snippet__1">
-            <div fabr-carousel>
-                <div fabr-carousel-slide>
-                    <h1>Slide 1</h1>
+                <div id="snippet__0">
+                    <div fabr-expander fabr-expander-title="Secret content">
+                        <img fabr-image fabr-settings="managed"
+                            src="https://media1.giphy.com/media/kyoI9nk0n3PMEM84B8/giphy.gif" alt="Secret content">
+                    </div>
                 </div>
-                <div fabr-carousel-slide>
-                    <h1>Slide 2</h1>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet__0"></div>
                 </div>
-                <div fabr-carousel-slide>
-                    <h1>Slide 3</h1>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Carousel</h2>
+
+                <div id="snippet__1">
+                    <div fabr-carousel>
+                        <div fabr-carousel-slide>
+                            <h1>Slide 1</h1>
+                        </div>
+                        <div fabr-carousel-slide>
+                            <h1>Slide 2</h1>
+                        </div>
+                        <div fabr-carousel-slide>
+                            <h1>Slide 3</h1>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet__1"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Counters</h2>
-        <p>First counter has a signal connection which shows an alert with the value after the increment.</p>
-
-        <div id="snippet_0">
-            <button fabr-com-id="c1" fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
-            <!-- After Fabr is loaded, connect the signal:
-                const obj = fbr.fabr.getComponentByComId("c1")
-                fbr.myFunc = function (event) {
-                    alert("Counter value: " + event.detail)
-                }
-                obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
-            -->
-            <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
-            <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_0"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Tooltips</h2>
-        <div id="snippet_1">
-            <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_1"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Links</h2>
-
-        <div>
-            <p>This will load the page <code>tests/test_new_page.html</code> replacing the current one.</p>
-            <div id="snippet_2">
-                <a href="tests/test_new_page.html" fabr-link>Link to a new page</a>
-            </div>
-
-            <div fabr-expander fabr-expander-title="Show code">
-                <div fabr-snippet fabr-snippet-from="#snippet_2"></div>
-            </div>
-        </div>
-
-        <div>
-            <p>This will load the page <code>tests/test_new_page.html</code> as a fragment in the current page.</p>
-            <div id="snippet_2_1">
-                <a href="tests/test_new_page.html" fabr-link fabr-link-dom="fabr_link_test">Link to a new page</a>
-                <div id="fabr_link_test"></div>
-            </div>
-
-            <div fabr-expander fabr-expander-title="Show code">
-                <div fabr-snippet fabr-snippet-from="#snippet_2_1"></div>
-            </div>
-    </section>
-
-    <section>
-        <h2>Notebooks</h2>
-
-        <div id="snippet_3">
-            <div fabr-notebook>
-                <ul>
-                    <li fabr-notebook-item="tab1">Tab 1</li>
-                    <li fabr-notebook-item="tab2">Tab 2</li>
-                    <li fabr-notebook-item="tab3">Tab 3</li>
-                </ul>
-                <div fabr-notebook-content="tab1">Content tab 1</div>
-                <div fabr-notebook-content="tab2">Content tab 2</div>
-                <div fabr-notebook-content="tab3">Content tab 3</div>
-            </div>
-        </div>
-
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_3"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Tables</h2>
-
-        <div id="snippet_4">
-            <table fabr-table fabr-settings="search|sort">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>City</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>20</td>
-                        <td>New York</td>
-                    </tr>
-                    <tr>
-                        <td>Mike</td>
-                        <td>30</td>
-                        <td>London</td>
-                    </tr>
-                    <tr>
-                        <td>Anna</td>
-                        <td>25</td>
-                        <td>Paris</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_4"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Forms</h2>
-
-        <div id="snippet_5">
-            <form fabr-form fabr-form-response="tests/test_login_response_200.json" method="POST">
-                <p>This form will succeed</p>
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
-                <button type="submit">Login</button>
-            </form>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_5"></div>
-        </div>
-
-        <div id="snippet_6">
-            <form fabr-form fabr-form-response="tests/test_login_response_400.json" method="POST">
-                <p>This form will fail</p>
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
-                <button type="submit">Login</button>
-            </form>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_6"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Animations</h2>
-
-        <div id="snippet_7">
-            <div>
-                <button fabr-animator fabr-animator-type="fadeIn" fabr-animator-target="#animation_1"
-                    fabr-animator-event="click">Click to fade in</button>
-                <div id="animation_1" fabr-animator fabr-animator-type="fadeOut" fabr-animator-event="click"
-                    style="display: none;">
-                    Click to fade out
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet__1"></div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_7"></div>
-        </div>
+            <section>
+                <h2 fabr-summary-title>Counters</h2>
+                <p>First counter has a signal connection which shows an alert with the value after the increment.</p>
 
-        <div id="snippet_8">
-            <div>
-                <button fabr-animator fabr-animator-type="slideRight" fabr-animator-target="#animation_2"
-                    fabr-animator-event="click">Click to slide right</button>
-                <div id="animation_2" fabr-animator fabr-animator-type="slideLeft" fabr-animator-event="click"
-                    style="display: none;">
-                    Click to slide out left
+                <div id="snippet_0">
+                    <button fabr-com-id="c1" fabr-counter="myCounter1" fabr-counter-initial-value="0">0</button>
+                    <!-- After Fabr is loaded, connect the signal:
+                    const obj = fbr.fabr.getComponentByComId("c1")
+                    fbr.myFunc = function (event) {
+                        alert("Counter value: " + event.detail)
+                    }
+                    obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
+                -->
+                    <button fabr-counter="myCounter2" fabr-counter-initial-value="3">3</button>
+                    <button fabr-counter="myCounter3" fabr-counter-initial-value="6">6</button>
                 </div>
-            </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_0"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Tooltips</h2>
+                <div id="snippet_1">
+                    <a href="#" fabr-tooltip fabr-tooltip-text="This is a tooltip">Hover me</a>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_1"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Links</h2>
+
+                <div>
+                    <p>This will load the page <code>tests/test_new_page.html</code> replacing the current one.</p>
+                    <div id="snippet_2">
+                        <a href="tests/test_new_page.html" fabr-link>Link to a new page</a>
+                    </div>
+
+                    <div fabr-expander fabr-expander-title="Show code">
+                        <div fabr-snippet fabr-snippet-from="#snippet_2"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>This will load the page <code>tests/test_new_page.html</code> as a fragment in the current page.
+                    </p>
+                    <div id="snippet_2_1">
+                        <a href="tests/test_new_page.html" fabr-link fabr-link-dom="fabr_link_test">Link to a new
+                            page</a>
+                        <div id="fabr_link_test"></div>
+                    </div>
+
+                    <div fabr-expander fabr-expander-title="Show code">
+                        <div fabr-snippet fabr-snippet-from="#snippet_2_1"></div>
+                    </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Notebooks</h2>
+
+                <div id="snippet_3">
+                    <div fabr-notebook>
+                        <ul>
+                            <li fabr-notebook-item="tab1">Tab 1</li>
+                            <li fabr-notebook-item="tab2">Tab 2</li>
+                            <li fabr-notebook-item="tab3">Tab 3</li>
+                        </ul>
+                        <div fabr-notebook-content="tab1">Content tab 1</div>
+                        <div fabr-notebook-content="tab2">Content tab 2</div>
+                        <div fabr-notebook-content="tab3">Content tab 3</div>
+                    </div>
+                </div>
+
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_3"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Tables</h2>
+
+                <div id="snippet_4">
+                    <table fabr-table fabr-settings="search|sort">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>City</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>20</td>
+                                <td>New York</td>
+                            </tr>
+                            <tr>
+                                <td>Mike</td>
+                                <td>30</td>
+                                <td>London</td>
+                            </tr>
+                            <tr>
+                                <td>Anna</td>
+                                <td>25</td>
+                                <td>Paris</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_4"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Forms</h2>
+
+                <div id="snippet_5">
+                    <form fabr-form fabr-form-response="tests/test_login_response_200.json" method="POST">
+                        <p>This form will succeed</p>
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_5"></div>
+                </div>
+
+                <div id="snippet_6">
+                    <form fabr-form fabr-form-response="tests/test_login_response_400.json" method="POST">
+                        <p>This form will fail</p>
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_6"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Animations</h2>
+
+                <div id="snippet_7">
+                    <div>
+                        <button fabr-animator fabr-animator-type="fadeIn" fabr-animator-target="#animation_1"
+                            fabr-animator-event="click">Click to fade in</button>
+                        <div id="animation_1" fabr-animator fabr-animator-type="fadeOut" fabr-animator-event="click"
+                            style="display: none;">
+                            Click to fade out
+                        </div>
+                    </div>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_7"></div>
+                </div>
+
+                <div id="snippet_8">
+                    <div>
+                        <button fabr-animator fabr-animator-type="slideRight" fabr-animator-target="#animation_2"
+                            fabr-animator-event="click">Click to slide right</button>
+                        <div id="animation_2" fabr-animator fabr-animator-type="slideLeft" fabr-animator-event="click"
+                            style="display: none;">
+                            Click to slide out left
+                        </div>
+                    </div>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_8"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Lists</h2>
+
+                <div id="snippet_9">
+                    <p>This is a simple list</p>
+                    <ul fabr-list fabr-list-name="test_list"></ul>
+                    <!--
+                    After Fabr is loaded, you can create the list with:
+                    <script>
+                        fbr.fabr.getComponent("list").newList(
+                            "test_list",
+                            ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+                        )
+                    </script>
+                -->
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_9"></div>
+                </div>
+
+                <h3 fabr-summary-title>Lists with templates</h3>
+
+                <div id="snippet_10">
+                    <p>This list uses a template</p>
+                    <ul fabr-list fabr-list-name="test_list_template"></ul>
+                    <!--
+                    After Fabr is loaded, you can create the list with:
+                    <script>
+                        fbr.fabr.getComponent("list").newListFromTemplate(
+                            "test_list_template",
+                            [
+                                {
+                                    "key": "item1",
+                                    "value": "Item 1"
+                                },
+                                {
+                                    "key": "item2",
+                                    "value": "Item 2"
+                                },
+                                {
+                                    "key": "item3",
+                                    "value": "Item 3"
+                                },
+                                {
+                                    "key": "item4",
+                                    "value": "Item 4"
+                                },
+                                {
+                                    "key": "item5",
+                                    "value": "Item 5"
+                                }
+                            ],
+                            `<b>{{key}}</b> - {{value}}`
+                        )
+                    </script>
+                -->
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_10"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Selectors</h2>
+
+                <div id="snippet_11">
+                    <select fabr-selector>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                        <option value="5">Option 5</option>
+                    </select>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_11"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 fabr-summary-title>Images</h2>
+                <p>This image appears only when in the viewport</p>
+
+                <div class="splitter" id="snippet_12">
+                    <img fabr-image src="https://media2.giphy.com/media/t7FlnyIbYGXYhg3YYt/giphy.gif"
+                        fabr-settings="managed" />
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_12"></div>
+                </div>
+            </section>
         </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_8"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Lists</h2>
-
-        <div id="snippet_9">
-            <p>This is a simple list</p>
-            <ul fabr-list fabr-list-name="test_list"></ul>
-            <!--
-                After Fabr is loaded, you can create the list with:
-                <script>
-                    fbr.fabr.getComponent("list").newList(
-                        "test_list",
-                        ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
-                    )
-                </script>
-            -->
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_9"></div>
-        </div>
-
-        <div id="snippet_10">
-            <p>This list uses a template</p>
-            <ul fabr-list fabr-list-name="test_list_template"></ul>
-            <!--
-                After Fabr is loaded, you can create the list with:
-                <script>
-                    fbr.fabr.getComponent("list").newListFromTemplate(
-                        "test_list_template",
-                        [
-                            {
-                                "key": "item1",
-                                "value": "Item 1"
-                            },
-                            {
-                                "key": "item2",
-                                "value": "Item 2"
-                            },
-                            {
-                                "key": "item3",
-                                "value": "Item 3"
-                            },
-                            {
-                                "key": "item4",
-                                "value": "Item 4"
-                            },
-                            {
-                                "key": "item5",
-                                "value": "Item 5"
-                            }
-                        ],
-                        `<b>{{key}}</b> - {{value}}`
-                    )
-                </script>
-            -->
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_10"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Selectors</h2>
-
-        <div id="snippet_11">
-            <select fabr-selector>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-                <option value="4">Option 4</option>
-                <option value="5">Option 5</option>
-            </select>
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_11"></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Images</h2>
-        <p>This image appears only when in the viewport</p>
-
-        <div class="splitter" id="snippet_12">
-            <img fabr-image src="https://media2.giphy.com/media/t7FlnyIbYGXYhg3YYt/giphy.gif" fabr-settings="managed" />
-        </div>
-
-        <div fabr-expander fabr-expander-title="Show code">
-            <div fabr-snippet fabr-snippet-from="#snippet_12"></div>
-        </div>
-    </section>
+    </div>
 
     <script fabr-lib src="src/core.js"></script>
     <script fabr-lib src="src/debugger.js"></script>
@@ -350,6 +359,7 @@
     <script fabr-lib src="src/components/notebook.js"></script>
     <script fabr-lib src="src/components/selector.js"></script>
     <script fabr-lib src="src/components/snippet.js"></script>
+    <script fabr-lib src="src/components/summary.js"></script>
     <script fabr-lib src="src/components/table.js"></script>
     <script fabr-lib src="src/components/tooltip.js"></script>
 

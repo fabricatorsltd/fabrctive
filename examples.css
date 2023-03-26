@@ -450,3 +450,74 @@ img {
 .fabr-carousel-control-next:focus {
     background-color: rgb(173 173 173);
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.fabr-summary-list {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    background-color: #f3f2f1;
+}
+
+fabr-summary-item {
+    display: flex;
+    align-items: center;
+}
+
+.fabr-summary-item-has-nested {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fabr-summary-item-wrapper {
+    padding-inline-start: 0;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.fabr-summary-wrapper {
+    width: 280px;
+    position: sticky;
+    top: 20px;
+}
+
+.fabr-summary-list li {
+    list-style: none;
+    padding: 0;
+    background: transparent;
+    padding: 12px;
+}
+
+.fabr-summary-list li:hover {
+    background: #eaeaea;
+}
+
+.fabr-summary-item-wrapper .fabr-summary-item {
+    padding: 12px 0;
+}
+
+.fabr-summary-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+li.fabr-summary-item-wrapper-active {
+    background-color: #e5e5e5;
+}
+
+li.fabr-summary-item-wrapper-active>a {
+    font-weight: 600;
+}
+
+.fabr-summary-item-has-nested.fabr-summary-item-nested-open {
+    background-color: #ebebeb;
+}

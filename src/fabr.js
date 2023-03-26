@@ -23,6 +23,7 @@ fbr.Fabr = class extends fbr.FabrCore {
       animator: new fbr.FabrAnimator(),
       snippet: new fbr.FabrSnippet(),
       selector: new fbr.FabrSelector(),
+      summary: new fbr.FabrSummary(),
     };
 
     console.log("%cFabr initialized", "color: #00f");

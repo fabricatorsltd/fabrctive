@@ -241,3 +241,20 @@ as you can see, the `connect` function takes three arguments: the signal name, t
 emits the signal, and the function that handles the signal. The function receives the event object
 as an argument and the signal data is stored in the `event.detail` property.
 
+## Tauri Integration
+Fabr can be used with [Tauri](https://tauri.app/), a framework that allows you to build desktop 
+applications using web technologies.
+
+In the [`tauri-example`](tauri-example) directory, you can find an example of a Tauri application 
+that uses Fabr. I've only experimented with it on Linux and a Tauri Vanilla template, so it might
+not work on other platforms or with other templates.
+
+To run the example, you need to install Tauri and then run the following commands:
+
+```bash
+cd tauri-example
+npm run tauri dev
+```
+
+The example is a simple application with some Fabr components. Note that [fabr-scoped scripts](#executing-scripts-in-fabrs-custom-scope)
+doesn't work in Tauri (yet).

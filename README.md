@@ -33,28 +33,32 @@ Then, you can use the `Fabr` class to initialize the library.
 To use the library in development mode, you need to include all the files manually.
 
 ```html
-    <script src="src/debugger.js"></script>
-    <script src="src/core.js"></script>
+    <script fabr-lib src="src/core.js"></script>
+    <script fabr-lib src="src/debugger.js"></script>
 
-    <script src="src/helper.js"></script>
-    <script src="src/helpers/animate.js"></script>
-    <script src="src/helpers/icon.js"></script>
-    <script src="src/helpers/localstorage.js"></script>
-    <script src="src/helpers/toast.js"></script>
+    <script fabr-lib src="src/helper.js"></script>
+    <script fabr-lib src="src/helpers/animate.js"></script>
+    <script fabr-lib src="src/helpers/icon.js"></script>
+    <script fabr-lib src="src/helpers/localstorage.js"></script>
+    <script fabr-lib src="src/helpers/sharedmemory.js"></script>
+    <script fabr-lib src="src/helpers/toast.js"></script>
 
-    <script src="src/component.js"></script>
-    <script src="src/components/form.js"></script>
-    <script src="src/components/link.js"></script>
-    <script src="src/components/counter.js"></script>
-    <script src="src/components/tooltip.js"></script>
-    <script src="src/components/notebook.js"></script>
-    <script src="src/components/table.js"></script>
-    <script src="src/components/animator.js"></script>
-    <script src="src/components/snippet.js"></script>
+    <script fabr-lib src="src/component.js"></script>
+    <script fabr-lib src="src/components/animator.js"></script>
+    <script fabr-lib src="src/components/counter.js"></script>
+    <script fabr-lib src="src/components/expander.js"></script>
+    <script fabr-lib src="src/components/form.js"></script>
+    <script fabr-lib src="src/components/link.js"></script>
+    <script fabr-lib src="src/components/list.js"></script>
+    <script fabr-lib src="src/components/notebook.js"></script>
+    <script fabr-lib src="src/components/selector.js"></script>
+    <script fabr-lib src="src/components/snippet.js"></script>
+    <script fabr-lib src="src/components/table.js"></script>
+    <script fabr-lib src="src/components/tooltip.js"></script>
 
-    <script src="src/tests/localstorage.js"></script>
-
-    <script src="src/fabr.js"></script>
+    <script fabr-lib src="src/tests/localstorage.js"></script>
+    <script fabr-lib src="src/tests/sharedmemory_1.js"></script>
+    <script fabr-lib src="src/tests/sharedmemory_2.js"></script>
 ```
 
 ## Examples
@@ -64,10 +68,10 @@ Check [examples.html](examples.html) for a list of examples that demonstrate the
 
 ### Standard components
 fabr.js comes with a few standard components that you can use to create reactive web applications.
+Those are only a few of the actually available components. You can see the full list of components
+in the [components](src/components) directory.
 
 #### Forms
-> **Note:** We need a better way to handle the response, instead of using a `showToast` function.
-
 To make a form reactive, you need to add the `fabr-form` attribute to the form element.
 
 ```html

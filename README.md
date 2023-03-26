@@ -22,12 +22,11 @@ To use the library, you need to include the `fabr.min.js` file as the last scrip
 Then, you can use the `Fabr` class to initialize the library.
 
 ```html
-<script src="fabr.min.js"></script>
-
-<script>
-    new Fabr()
-</script>
+<script fabr-lib src="fabr.min.js"></script>
 ```
+
+Note the `fabr-lib` attribute. This is used to prevent the library from being reinitialized when
+something is loaded dynamically.
 
 ### Development
 To use the library in development mode, you need to include all the files manually.
@@ -59,6 +58,15 @@ To use the library in development mode, you need to include all the files manual
     <script fabr-lib src="src/tests/localstorage.js"></script>
     <script fabr-lib src="src/tests/sharedmemory_1.js"></script>
     <script fabr-lib src="src/tests/sharedmemory_2.js"></script>
+```
+
+### Testing
+You can test if the library is working by checking the `fbr` scope in the browser console. It should
+appear as an object containing the Fabr classes and other stuff.
+
+```javascript
+fbr
+// {FabrCore: ƒ, FabrDebugger: ƒ, FabrHelper: ƒ, FabrHelperAnimate: ƒ, FabrHelperIcon: ƒ, …}
 ```
 
 ## Examples

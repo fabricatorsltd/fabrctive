@@ -13,7 +13,6 @@ fbr.FabrAnimator = class extends fbr.FabrCoreComponent {
       mouseover: "onAnim",
       mouseout: "onAnim",
     };
-    this.animations = {};
     this.animateHelper = new fbr.FabrHelperAnimate();
     this.animateHelper.init(this);
   }

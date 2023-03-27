@@ -121,9 +121,7 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
       this.elements.forEach((element) => {
         element.addEventListener(event, (e) => {
           // @@@IF NOT BUILD@@@
-          this.debugger.log(
-            `Event ${e.type} triggered on ${fn} for\n\t\t${e.target.outerHTML}`
-          );
+          this.debugger.log(`Event ${e.type} triggered on ${fn}`);
           // @@@ENDIF@@@
 
           this[fn](e);

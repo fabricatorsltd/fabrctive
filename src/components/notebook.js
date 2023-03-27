@@ -33,7 +33,6 @@ fbr.FabrNotebook = class extends fbr.FabrCoreComponent {
         tabItem,
         "click",
         "activateTabEvent",
-        null,
         tabItem,
         tabContent,
         notebook
@@ -60,6 +59,10 @@ fbr.FabrNotebook = class extends fbr.FabrCoreComponent {
   activateTabEvent(_, tabItem, tabContent, notebook) {
     const tabItems = notebook.querySelectorAll("[fabr-notebook-item]");
     const tabContents = notebook.querySelectorAll("[fabr-notebook-content]");
+
+    if (tabItem.classList.contains("active")) {
+      return;
+    }
 
     tabItems.forEach((tabItem) => {
       tabItem.classList.remove("active");

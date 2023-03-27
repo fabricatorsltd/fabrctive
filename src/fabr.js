@@ -17,6 +17,7 @@ fbr.Fabr = class extends fbr.FabrCore {
       counter: new fbr.FabrCounter(),
       expander: new fbr.FabrExpander(),
       image: new fbr.FabrImage(),
+      loader: new fbr.FabrLoader(),
       tooltip: new fbr.FabrTooltip(),
       notebook: new fbr.FabrNotebook(),
       table: new fbr.FabrTable(),

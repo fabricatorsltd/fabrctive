@@ -20,5 +20,6 @@ fbr.FabrLoader = class extends fbr.FabrCoreComponent {
    */
   render(loader) {
     this.animateHelper.fadeIn(loader, 500);
+    loader.style.visibility = "visible";
   }
 };

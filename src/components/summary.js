@@ -95,7 +95,7 @@ fbr.FabrSummary = class extends fbr.FabrCoreComponent {
 
         wrapper.style.display = "none";
         this.addInternalEventListener(
-          arrow,
+          parent,
           "click",
           "toggleNestedHeadings",
           parent
@@ -114,8 +114,12 @@ fbr.FabrSummary = class extends fbr.FabrCoreComponent {
    * @param {HTMLElement} parent - The parent element.
    */
   toggleNestedHeadings(event, parent) {
-    const arrow = event.target;
     const wrapper = parent.querySelector(".fabr-summary-item-wrapper");
+    const arrow = parent.querySelector(".fabr-summary-arrow");
+
+    if (event.target.closest(".fabr-summary-item-wrapper")) {
+      return;
+    }
 
     if (wrapper.style.display === "none") {
       this.animateHelper.fadeIn(wrapper);

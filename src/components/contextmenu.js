@@ -36,6 +36,7 @@ fbr.FabrContextMenu = class extends fbr.FabrCoreComponent {
 
     const menu = document.createElement("div");
     const menuList = document.createElement("div");
+    menu.style.display = "none";
     menu.classList.add("fabr-contextmenu-body");
     menu.setAttribute("fabr-contextmenu-name", menuName);
     menuList.classList.add("fabr-contextmenu-list");

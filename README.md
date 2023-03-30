@@ -70,7 +70,7 @@ fbr
 ```
 
 ## Examples
-Check [examples.html](examples.html) for a list of examples that demonstrate the usage of the library.
+Check [examples/all-components](examples/all-componentsl) for a list of examples that demonstrate the usage of the library.
 
 ## Documentation
 
@@ -257,7 +257,7 @@ as an argument and the signal data is stored in the `event.detail` property.
 Fabr can be used with [Tauri](https://tauri.app/), a framework that allows you to build desktop 
 applications using web technologies.
 
-In the [`tauri-example`](tauri-example) directory, you can find an example of a Tauri application 
+In the [`examples/tauri-example`](examples/tauri-example) directory, you can find an example of a Tauri application 
 that uses Fabr. I've only experimented with it on Linux and a Tauri Vanilla template, so it might
 not work on other platforms or with other templates.
 

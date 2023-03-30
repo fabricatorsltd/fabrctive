@@ -70,7 +70,7 @@ fbr
 ```
 
 ## Examples
-Check [examples/all-components](examples/all-componentsl) for a list of examples that demonstrate the usage of the library.
+Check [examples/all-components](examples/all-components) for a list of examples that demonstrate the usage of the library.
 
 ## Documentation
 

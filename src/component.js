@@ -159,14 +159,15 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
    * Removes an internal event listener from the specified element.
    * @param {HTMLElement} element - The element to remove the event listener from.
    * @param {string} event - The name of the event to remove the listener for.
-   * @param {EventListener} listener - The event listener to remove.
+   * @param {string} fn - The name of the function called when the event was triggered.
    */
-  removeInternalEventListener(element, event, listener) {
+  removeInternalEventListener(element, event, fn) {
     // @@@IF NOT BUILD@@@
-    this.debugger.log(`Removing internal event listener for ${event}`);
+    this.debugger.log(
+      `Removing internal event listener for ${event} from ${element}`
+    );
     // @@@ENDIF@@@
-
-    element.removeEventListener(event, listener);
+    element.removeEventListener(event, this[fn]);
   }
 
   /**

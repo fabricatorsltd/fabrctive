@@ -56,6 +56,18 @@
             </section>
 
             <section>
+                <h2 fabr-summary-title>Context Menu</h2>
+
+                <div id="snippet__2">
+                    <div fabr-contextmenu fabr-contextmenu-name="test_contextmenu" class="clickable-area"></div>
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet__2"></div>
+                </div>
+            </section>
+
+            <section>
                 <h2 fabr-summary-title>Counters</h2>
                 <p>First counter has a signal connection which shows an alert with the value after the increment.</p>
 
@@ -350,6 +362,7 @@
     <script fabr-lib src="src/component.js"></script>
     <script fabr-lib src="src/components/animator.js"></script>
     <script fabr-lib src="src/components/carousel.js"></script>
+    <script fabr-lib src="src/components/contextmenu.js"></script>
     <script fabr-lib src="src/components/counter.js"></script>
     <script fabr-lib src="src/components/expander.js"></script>
     <script fabr-lib src="src/components/image.js"></script>
@@ -369,10 +382,13 @@
     <script fabr-lib src="src/tests/sharedmemory_2.js"></script>
 
     <script type="text/fabr">
+        // Normal list
         fbr.fabr.getComponent("list").newList(
             "test_list",
             ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
         )
+
+        // List from template
         fbr.fabr.getComponent("list").newListFromTemplate(
             "test_list_template",
             [
@@ -400,11 +416,56 @@
             `<b>{{key}}</b> - {{value}}`
         )
 
+        // Signal example
         const obj = fbr.fabr.getComponentByComId("c1")
         fbr.myFunc = function (event) {
             alert("Counter value: " + event.detail)
         }
         obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
+
+        // Context menu
+        fbr.fabr.getComponent("contextmenu").newMenu(
+            "test_contextmenu",
+            [
+                {
+                    "text": "Item 1",
+                    "icon": "rocket",
+                    "action": function () {
+                        alert("Item 1")
+                    },
+                    "subitems": [
+                        {
+                            "text": "Subitem 1",
+                            "icon": "rocket",
+                            "action": function () {
+                                alert("Subitem 1")
+                            }
+                        },
+                        {
+                            "text": "Subitem 2",
+                            "icon": "rocket",
+                            "action": function () {
+                                alert("Subitem 2")
+                            }
+                        }
+                    ]
+                },
+                {
+                    "text": "Item 2",
+                    "icon": "rocket",
+                    "action": function () {
+                        alert("Item 2")
+                    }
+                },
+                {
+                    "text": "Item 3",
+                    "icon": "rocket",
+                    "action": function () {
+                        alert("Item 3")
+                    }
+                }
+            ]
+        )
     </script>
 
     <script fabr-lib src="src/fabr.js"></script>

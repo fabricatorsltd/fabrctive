@@ -14,6 +14,7 @@ fbr.Fabr = class extends fbr.FabrCore {
       link: new fbr.FabrLink(),
       list: new fbr.FabrList(),
       carousel: new fbr.FabrCarousel(),
+      contextmenu: new fbr.FabrContextMenu(),
       counter: new fbr.FabrCounter(),
       expander: new fbr.FabrExpander(),
       image: new fbr.FabrImage(),

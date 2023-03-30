@@ -31,6 +31,11 @@ fbr.Fabr = class extends fbr.FabrCore {
   }
 
   init() {
+    // @@@IF NOT BUILD@@@
+    console.log("%cFabr Benchmarking...", "color: #00f");
+    const start = performance.now();
+    // @@@ENDIF@@@
+
     this.initComponents();
 
     // @@@IF NOT BUILD@@@
@@ -38,6 +43,14 @@ fbr.Fabr = class extends fbr.FabrCore {
     // @@@ENDIF@@@
 
     this.loadScripts();
+
+    // @@@IF NOT BUILD@@@
+    const end = performance.now();
+    console.log(
+      "%cFabr Benchmark complete in " + (end - start) + "ms",
+      "color: #00f"
+    );
+    // @@@ENDIF@@@
   }
 
   /**

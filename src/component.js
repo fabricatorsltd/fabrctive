@@ -83,10 +83,10 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
       return;
     }
 
-    this.elements = document.querySelectorAll(this.selector);
-    this.elements.forEach((element) => {
+    const elements = document.querySelectorAll(this.selector);
+    for (let element of elements) {
       if (this.renderedElements.includes(element)) {
-        return;
+        continue;
       }
 
       if (element.getAttribute("fabr-com-id")) {
@@ -96,9 +96,10 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
         };
       }
 
+      this.elements.push(element);
       element.classList.add(this.componentStyleClass);
       this.renderedElements.push(element);
-    });
+    }
   }
 
   /**
@@ -118,7 +119,7 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
       this.debugger.log(`Adding event listener for ${event} on ${fn}`);
       // @@@ENDIF@@@
 
-      this.elements.forEach((element) => {
+      for (let element of this.elements) {
         element.addEventListener(event, (e) => {
           // @@@IF NOT BUILD@@@
           this.debugger.log(`Event ${e.type} triggered on ${fn}`);
@@ -126,7 +127,7 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
 
           this[fn](e);
         });
-      });
+      }
     }
   }
 
@@ -177,14 +178,15 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
       return;
     }
 
-    this.elements.forEach((element) => {
+    for (let element of this.elements) {
       if (this.render) {
         // @@@IF NOT BUILD@@@
         this.debugger.log(`Rendering ${element}`);
         // @@@ENDIF@@@
+
         this.render(element);
       }
-    });
+    }
   }
 
   /**

@@ -46,10 +46,12 @@ fbr.FabrSummary = class extends fbr.FabrCoreComponent {
       const text = document.createTextNode(heading.innerText);
       const level = heading.tagName.replace("H", "");
 
-      item.classList.add("fabr-summary-item");
-      item.classList.add("fabr-summary-item-level-" + level);
+      item.classList.add(
+        "fabr-summary-item",
+        `fabr-summary-item-level-${level}`
+      );
       link.classList.add("fabr-summary-link");
-      link.href = "#" + headingId;
+      link.href = `#${headingId}`;
       link.appendChild(text);
       item.appendChild(link);
       list.appendChild(item);

@@ -27,7 +27,7 @@ fbr.FabrCarousel = class extends fbr.FabrCoreComponent {
     const wrapper = document.createElement("div");
     const slides = carousel.querySelectorAll("[fabr-carousel-slide]");
 
-    carousel.style.height = carousel.offsetHeight + "px";
+    carousel.style.height = `${carousel.offsetHeight}px`;
     carousel.delay = delay ? parseInt(delay) : 5000;
 
     wrapper.classList.add("fabr-carousel-wrapper");

@@ -365,12 +365,14 @@
     <script fabr-lib src="/src/components/contextmenu.js"></script>
     <script fabr-lib src="/src/components/counter.js"></script>
     <script fabr-lib src="/src/components/expander.js"></script>
+    <script fabr-lib src="/src/components/icon.js"></script>
     <script fabr-lib src="/src/components/image.js"></script>
     <script fabr-lib src="/src/components/form.js"></script>
     <script fabr-lib src="/src/components/link.js"></script>
     <script fabr-lib src="/src/components/list.js"></script>
     <script fabr-lib src="/src/components/loader.js"></script>
     <script fabr-lib src="/src/components/notebook.js"></script>
+    <script fabr-lib src="/src/components/preload.js"></script>
     <script fabr-lib src="/src/components/selector.js"></script>
     <script fabr-lib src="/src/components/snippet.js"></script>
     <script fabr-lib src="/src/components/summary.js"></script>
@@ -418,8 +420,8 @@
 
         // Signal example
         const obj = fbr.fabr.getComponentByComId("c1")
-        fbr.myFunc = function (event) {
-            alert("Counter value: " + event.detail)
+        fbr.myFunc = function (element, counterValue) {
+            alert("Counter value: " + counterValue);
         }
         obj.component.connect("fabr-counter:incremented", obj.element, fbr.myFunc)
 

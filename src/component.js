@@ -20,6 +20,7 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
     this.elements = [];
     this.renderedElements = [];
     this.signals = {};
+    this.observers = new Map();
   }
 
   /**
@@ -191,53 +192,53 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
   }
 
   /**
-   * Emit a signal with arguments.
+   * Emits a signal.
    * @param {string} signal - The name of the signal to emit.
-   * @param {HTMLElement} element - The element to emit the signal from.
-   * @param {any} args - Any arguments to pass to the signal.
+   * @param {HTMLElement} element - The element that is emitting the signal.
+   * @param {any} args - Any additional arguments to pass to the signal observers.
    */
   emit(signal, element, ...args) {
-    // @@@IF NOT BUILD@@@
-    this.debugger.log(`Emitting signal ${signal} from ${element}`);
-    // @@@ENDIF@@@
-
-    element.dispatchEvent(new CustomEvent(signal, { detail: args }));
+    if (this.observers.has(signal)) {
+      const observers = this.observers.get(signal);
+      observers.forEach((observer) => {
+        observer(element, ...args);
+      });
+    }
   }
 
   /**
-   * Connect a signal to a function.
-   * @param {string} signal - The name of the signal to connect to.
-   * @param {HTMLElement} element - The element to connect the signal to.
-   * @param {string} fn - The name of the function to call when the signal is emitted.
-   * @returns {EventListener} The event listener that was added.
+   * Connects a signal observer.
+   * @param {string} signal - The name of the signal to observe.
+   * @param {HTMLElement} element - The element that is emitting the signal.
+   * @param {function} fn - The function to call when the signal is emitted.
+   * @returns {function} The observer function.
    */
   connect(signal, element, fn) {
-    // @@@IF NOT BUILD@@@
-    this.debugger.log(`Connecting signal ${signal} to ${fn}`);
-    // @@@ENDIF@@@
+    if (!this.observers.has(signal)) {
+      this.observers.set(signal, new Set());
+    }
 
-    const listener = element.addEventListener(signal, (e) => {
-      // @@@IF NOT BUILD@@@
-      this.debugger.log(`Signal ${signal} triggered on ${fn}`);
-      // @@@ENDIF@@@
-      fn(e);
-    });
+    const observers = this.observers.get(signal);
+    const observer = (emittingElement, counterValue) => {
+      if (emittingElement === element) {
+        fn(emittingElement, counterValue);
+      }
+    };
+    observers.add(observer);
 
-    return listener;
+    return observer;
   }
 
   /**
-   * Disconnect a signal from a function.
+   * Disconnects a signal observer.
    * @param {string} signal - The name of the signal to disconnect from.
-   * @param {HTMLElement} element - The element to disconnect the signal from.
-   * @param {EventListener} listener - The event listener to remove.
+   * @param {function} observer - The observer function to disconnect.
    */
-  disconnect(signal, element, listener) {
-    // @@@IF NOT BUILD@@@
-    this.debugger.log(`Disconnecting signal ${signal}`);
-    // @@@ENDIF@@@
-
-    element.removeEventListener(signal, listener);
+  disconnect(signal, observer) {
+    if (this.observers.has(signal)) {
+      const observers = this.observers.get(signal);
+      observers.delete(observer);
+    }
   }
 
   /**

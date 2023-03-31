@@ -1,6 +1,6 @@
 body {
     font-family: "Work Sans", sans-serif;
-    padding: 16px;
+    padding: 10px;
     margin: 0 auto 100px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -40,14 +40,34 @@ input[type="button"] {
     font-size: 14px;
     font-weight: bold;
     padding: 12px;
-    border-radius: 4px;
+    border-radius: 6px;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-button:hover {
+.fabr-form input[type="text"]:active,
+.fabr-form input[type="password"]:active,
+.fabr-form input[type="text"]:focus,
+.fabr-form input[type="password"]:focus {
+    outline: none;
+    border-color: #b1b1b1;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.fabr-carousel-control-prev:hover,
+.fabr-carousel-control-next:hover,
+.fabr-carousel-indicator:hover {
     background-color: #0063b1;
+    box-shadow: 0 2px 3px 0 #00000021, 0 2px 10px 0 #00000033, 0 2px 20px 0 #0000001c;
 }
 
-button:active {
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+.fabr-carousel-control-prev:active,
+.fabr-carousel-control-next:active,
+.fabr-carousel-indicator:active {
     background-color: #004578;
 }
 
@@ -55,7 +75,7 @@ button:active {
     background-color: #323130;
     color: #ffffff;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 14px;
 }
 
@@ -68,7 +88,7 @@ button:active {
     bottom: 20px;
     right: 20px;
     padding: 16px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
@@ -94,7 +114,7 @@ button:active {
 
 .fabr-table-search {
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 6px;
     border: none;
     font-size: 14px;
     background-color: #f3f2f1;
@@ -103,8 +123,9 @@ button:active {
 
 .fabr-table {
     border-collapse: collapse;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 #0000001f, 0 0 3px #0000000d;
 }
 
 .fabr-table th,
@@ -145,7 +166,7 @@ button:active {
     margin-bottom: 16px;
     font-size: 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     box-sizing: border-box;
     border: 1px solid #d1d1d1;
 }
@@ -156,9 +177,10 @@ button:active {
 }
 
 .fabr-notebook {
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
     overflow: hidden;
+    box-shadow: 0 1px 1px 0 #0000001f, 0 0 3px #0000000d;
 }
 
 .fabr-notebook ul {
@@ -179,6 +201,7 @@ button:active {
 
 .fabr-notebook li:hover {
     background-color: #eaeaea;
+    border-bottom-color: #cbcbcb;
 }
 
 .fabr-notebook li.active {
@@ -194,11 +217,27 @@ button:active {
 .fabr-snippet {
     margin: 10px 0;
     overflow: auto;
-    background-color: #f3f2f1;
-    border-radius: 4px;
+    background-color: #453c50;
+    border-radius: 6px;
     padding: 16px 20px;
-    border: 1px solid #eaeaea;
     position: relative;
+    color: #dbd1df;
+    font-weight: 500;
+}
+
+.fabr-snippet::-webkit-scrollbar {
+    background-color: #453c50;
+}
+
+.fabr-snippet::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #1c1922;
+    border: 5px solid #453c50;
+}
+
+.fabr-snippet::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #453c50;
 }
 
 .fabr-snippet-code {
@@ -212,6 +251,7 @@ button:active {
 
 .fabr-snippet-pre {
     margin: 0;
+    line-height: 20px;
 }
 
 .fabr-snippet-icon {
@@ -231,7 +271,8 @@ button:active {
 }
 
 .fabr-snippet-icon:hover {
-    background-color: #eaeaea;
+    background-color: #1e1722;
+    box-shadow: 0 2px 3px 0 #00000021, 0 2px 10px 0 #00000033, 0 2px 20px 0 #0000001c;
 }
 
 .fabr-snippet:hover .fabr-snippet-icon {
@@ -248,7 +289,7 @@ button:active {
     padding: 12px;
     font-size: 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     box-sizing: border-box;
     border: none;
 }
@@ -260,13 +301,17 @@ button:active {
     right: 0;
     background-color: #ffffff;
     border: 1px solid #d1d1d1;
-    border-top: 0;
     padding: 0;
-    margin: 0;
+    margin: 7px 0 0 0;
     list-style: none;
     z-index: 9999;
     max-height: 200px;
     overflow-y: auto;
+    display: none;
+    border-radius: 6px;
+}
+
+.fabr-selector-list::-webkit-scrollbar {
     display: none;
 }
 
@@ -294,6 +339,7 @@ button:active {
     align-items: center;
     gap: 10px;
     border: 1px solid #d1d1d1;
+    border-radius: 6px;
 }
 
 .fabr-selector-wrapper {
@@ -306,9 +352,16 @@ button:active {
 }
 
 .fabr-expander-wrapper {
-    border: 1px solid #eaeaea;
+    border: 1px solid #e5e5e5;
     margin: 10px 0;
-    border-radius: 4px;
+    border-radius: 6px;
+    transition: box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 1px 1px 0 #0000001f, 0 0 3px #0000000d;
+}
+
+.fabr-expander-wrapper-open {
+    box-shadow: 0 2px 3px 0 #00000021, 0 2px 10px 0 #00000033, 0 2px 20px 0 #0000001c;
 }
 
 .fabr-expander-header {
@@ -318,6 +371,7 @@ button:active {
     gap: 10px;
     padding: 10px 20px;
     align-items: center;
+    border-bottom: 0px solid transparent;
 }
 
 .fabr-expander-header:hover {
@@ -327,6 +381,10 @@ button:active {
 .fabr-expander-content {
     padding: 10px;
     display: none;
+}
+
+.fabr-expander-wrapper-open .fabr-expander-header {
+    border-bottom: 1px solid #e5e5e5;
 }
 
 img {
@@ -357,7 +415,8 @@ img {
     overflow: hidden;
     border: 1px solid #eaeaea;
     margin: 10px 0;
-    border-radius: 4px;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 #0000001f, 0 0 3px #0000000d;
 }
 
 .fabr-carousel-slide {
@@ -399,12 +458,13 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: default;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .fabr-carousel-control-prev:hover,
 .fabr-carousel-control-next:hover {
-    background-color: rgb(234 234 234);
+    color: #fff;
 }
 
 .fabr-carousel-control-prev {
@@ -432,19 +492,11 @@ img {
     border-radius: 50%;
     background-color: rgb(243 242 241);
     margin: 0 5px;
-    cursor: pointer;
+    cursor: default;
 }
 
-.fabr-carousel-indicator:hover {
-    background-color: rgb(234 234 234);
-}
-
-.fabr-carousel-indicator-active,
-.fabr-carousel-control-prev:active,
-.fabr-carousel-control-next:active,
-.fabr-carousel-control-prev:focus,
-.fabr-carousel-control-next:focus {
-    background-color: rgb(173 173 173);
+.fabr-carousel-indicator-active {
+    background-color: #0078d7;
 }
 
 .container {
@@ -459,9 +511,10 @@ img {
 .fabr-summary-list {
     margin: 0;
     padding: 0;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
     background-color: #f3f2f1;
+    box-shadow: 0 1px 1px 0 #0000001f, 0 0 3px #0000000d;
 }
 
 fabr-summary-item {
@@ -469,11 +522,12 @@ fabr-summary-item {
     align-items: center;
 }
 
-.fabr-summary-item-has-nested {
+.fabr-summary-list li.fabr-summary-item-has-nested {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 7.5px 12px;
 }
 
 .fabr-summary-item-wrapper {
@@ -485,14 +539,14 @@ fabr-summary-item {
 .fabr-summary-wrapper {
     width: 260px;
     position: sticky;
-    top: 20px;
+    top: 10px;
 }
 
 .fabr-summary-list li {
     list-style: none;
     padding: 0;
     background: transparent;
-    padding: 12px;
+    padding: 10px 12px;
 }
 
 .fabr-summary-list li:hover {
@@ -507,6 +561,7 @@ fabr-summary-item {
     color: black;
     text-decoration: none;
     display: block;
+    cursor: default;
 }
 
 li.fabr-summary-item-wrapper-active {
@@ -526,24 +581,42 @@ li.fabr-summary-item-wrapper-active>a {
 }
 
 .clickable-area {
-    height: 120px;
-    background-color: #f0f7ff;
-    border: 1px solid #0069d8;
-    border-radius: 4px;
+    height: 180px;
+    background-color: #f0f7ff69;
+    border: 2px dashed #0069d863;
+    border-radius: 6px;
+    position: relative;
+}
+
+.clickable-area::after {
+    content: "Right click here";
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #0069d863;
 }
 
 .fabr-contextmenu-body,
 .fabr-contextmenu-submenu {
-    background-color: white;
-    border-radius: 4px;
-    padding: 8px;
-    border: 1px solid #eaeaea;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding: 3px;
+    box-shadow: 0 2px 3px 0 #00000021, 0 2px 10px 0 #00000033, 0 2px 20px 0 #0000001c;
+    border: 1px solid #cdcdcdab;
 }
 
 .fabr-contextmenu-list {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
 }
 
 .fabr-contextmenu-item {
@@ -551,7 +624,7 @@ li.fabr-summary-item-wrapper-active>a {
     align-items: center;
     gap: 10px;
     padding: 5px;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: transparent;
     transition: background-color 0.2s ease-in-out;
     position: relative;

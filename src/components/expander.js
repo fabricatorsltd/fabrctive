@@ -61,14 +61,16 @@ fbr.FabrExpander = class extends fbr.FabrCoreComponent {
     const icon = wrapper.querySelector(".fabr-expander-icon");
 
     if (content.classList.contains("fabr-expander-content-open")) {
-      this.animateHelper.fadeOut(content, false, 300);
+      this.animateHelper.fadeOut(content, false, 200);
       content.classList.remove("fabr-expander-content-open");
+      wrapper.classList.remove("fabr-expander-wrapper-open");
       icon.textContent = "keyboard_arrow_down";
       return;
     }
 
-    this.animateHelper.fadeIn(content, 300);
+    this.animateHelper.fadeIn(content, 200);
     content.classList.add("fabr-expander-content-open");
+    wrapper.classList.add("fabr-expander-wrapper-open");
     icon.textContent = "keyboard_arrow_up";
   }
 };

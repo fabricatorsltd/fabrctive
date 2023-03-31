@@ -139,7 +139,7 @@ fbr.FabrContextMenu = class extends fbr.FabrCoreComponent {
     this.animateHelper.fadeIn(menu);
     menu.style.top = `${event.clientY}px`;
     menu.style.left = `${event.clientX}px`;
-    menu.style.position = "absolute";
+    menu.style.position = "fixed";
   }
 
   /**

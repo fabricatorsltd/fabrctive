@@ -78,9 +78,6 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
    */
   #initElements() {
     if (!this.selector) {
-      // @@@IF NOT BUILD@@@
-      this.debugger.log(`No selectors defined.`);
-      // @@@ENDIF@@@
       return;
     }
 
@@ -109,9 +106,6 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
    */
   #initEventListeners() {
     if (Object.keys(this.eventMap).length === 0) {
-      // @@@IF NOT BUILD@@@
-      this.debugger.log(`No event listeners defined.`);
-      // @@@ENDIF@@@
       return;
     }
 

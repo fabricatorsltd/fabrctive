@@ -200,9 +200,9 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
   emit(signal, element, ...args) {
     if (this.observers.has(signal)) {
       const observers = this.observers.get(signal);
-      observers.forEach((observer) => {
+      for (let observer of observers) {
         observer(element, ...args);
-      });
+      }
     }
   }
 

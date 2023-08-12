@@ -18,6 +18,7 @@ fbr.Fabr = class extends fbr.FabrCore {
       counter: new fbr.FabrCounter(),
       expander: new fbr.FabrExpander(),
       icon: new fbr.FabrIcon(),
+      if: new fbr.FabrIf(),
       image: new fbr.FabrImage(),
       loader: new fbr.FabrLoader(),
       tooltip: new fbr.FabrTooltip(),
@@ -30,6 +31,12 @@ fbr.Fabr = class extends fbr.FabrCore {
       selector: new fbr.FabrSelector(),
       summary: new fbr.FabrSummary(),
     };
+
+    // if (typeof fbr.appComponents !== "undefined") {
+    //   for (const cName in fbr.appComponents) {
+    //     this.components[cName] = fbr.appComponents[cName];
+    //   }
+    // }
 
     console.log("%cFabr initialized", "color: #00f");
   }
@@ -109,6 +116,7 @@ fbr.Fabr = class extends fbr.FabrCore {
     new fbr.LocalStorageTestComponent().init();
     new fbr.SharedMemory1TestComponent().init();
     new fbr.SharedMemory2TestComponent().init();
+    new fbr.SharedMemory3TestComponent().init();
   }
   // @@@ENDIF@@@
 
@@ -148,6 +156,17 @@ fbr.Fabr = class extends fbr.FabrCore {
   getComponentByComId(comId) {
     if (comId in fbr.comIDs) {
       return fbr.comIDs[comId];
+    }
+  }
+
+  /**
+   * Loads all the page scripts inside the fbr scope.
+   */
+  loadAppComponents() {
+    if (typeof fbr.appComponents !== "undefined") {
+      for (const cName in fbr.appComponents) {
+        fbr.appComponents[cName].init();
+      }
     }
   }
 };

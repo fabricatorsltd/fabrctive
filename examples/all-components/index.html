@@ -346,6 +346,29 @@
                     <div fabr-snippet fabr-snippet-from="#snippet_12"></div>
                 </div>
             </section>
+
+            <section>
+                <h2 fabr-summary-title>Conditions</h2>
+                <p>The following content is visible only if the variable <code>isElementVisible</code> is true in the
+                    shared memory.</p>
+
+                <div id="snippet_13">
+                    <!--                
+                        <div fabr-if="isElementVisible">
+                            This content is visible only if the variable isElementVisible is true in the shared memory.
+                        </div>
+                    -->
+                </div>
+
+                <div fabr-if="isElementVisible">
+                    This content is visible only if the variable isElementVisible is true in the shared memory.
+                </div>
+
+                <div fabr-expander fabr-expander-title="Show code">
+                    <div fabr-snippet fabr-snippet-from="#snippet_13"></div>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -366,6 +389,7 @@
     <script fabr-lib src="/src/components/counter.js"></script>
     <script fabr-lib src="/src/components/expander.js"></script>
     <script fabr-lib src="/src/components/icon.js"></script>
+    <script fabr-lib src="/src/components/if.js"></script>
     <script fabr-lib src="/src/components/image.js"></script>
     <script fabr-lib src="/src/components/form.js"></script>
     <script fabr-lib src="/src/components/link.js"></script>
@@ -383,6 +407,7 @@
     <script fabr-lib src="/src/tests/localstorage.js"></script>
     <script fabr-lib src="/src/tests/sharedmemory_1.js"></script>
     <script fabr-lib src="/src/tests/sharedmemory_2.js"></script>
+    <script fabr-lib src="/src/tests/sharedmemory_3.js"></script>
 
     <script type="text/fabr">
         // Normal list

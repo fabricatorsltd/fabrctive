@@ -2,6 +2,7 @@
  * @classdesc Represents a FabrHelperSharedMemory helper.
  * @extends FabrHelper
  */
+
 fbr.FabrHelperSharedMemory = class extends fbr.FabrHelper {
   constructor() {
     super();
@@ -12,6 +13,7 @@ fbr.FabrHelperSharedMemory = class extends fbr.FabrHelper {
     super.init(component);
     this.sharedMemory = this.#getSharedMemory();
     this.restrictedKeys = this.#getRestrictedKeys();
+    this.observers = this.#getObservers();
   }
 
   /**
@@ -39,6 +41,19 @@ fbr.FabrHelperSharedMemory = class extends fbr.FabrHelper {
     }
     fbr._fabrSharedMemoryRestrictedKeys = [];
     return fbr._fabrSharedMemoryRestrictedKeys;
+  }
+
+  /**
+   * Get the observers stored in the window object.
+   * @returns {Map} The observers.
+   * @private
+   */
+  #getObservers() {
+    if (fbr._fabrSharedMemoryObservers) {
+      return fbr._fabrSharedMemoryObservers;
+    }
+    fbr._fabrSharedMemoryObservers = new Map();
+    return fbr._fabrSharedMemoryObservers;
   }
 
   /**
@@ -100,6 +115,18 @@ fbr.FabrHelperSharedMemory = class extends fbr.FabrHelper {
   }
 
   /**
+   * Get all of the keys in the shared memory.
+   * @returns {Array} The keys in the shared memory.
+   */
+  getKeys() {
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(`Getting keys`);
+    // @@@ENDIF@@@
+
+    return Object.keys(this.sharedMemory);
+  }
+
+  /**
    * Remove a key from the shared memory.
    * @param {string} key - The key to remove.
    * @returns {boolean} True if the key was removed, false otherwise (key doesn't exist or is restricted).
@@ -122,5 +149,67 @@ fbr.FabrHelperSharedMemory = class extends fbr.FabrHelper {
       return true;
     }
     return false;
+  }
+  /**
+   * Connect a component as an observer for a variable in sharedMemory.
+   * @param {string} variableName - The name of the variable.
+   * @param {Object} observerComponent - The component that will observe the variable.
+   * @param {Function} callback - The function to call when the variable changes.
+   */
+  connect(variableName, observerComponent, callback) {
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(
+      `Connecting ${observerComponent.componentName} to ${variableName}`
+    );
+    // @@@ENDIF@@@
+
+    if (!this.observers.has(variableName)) {
+      this.observers.set(variableName, []);
+    }
+
+    this.observers.get(variableName).push({
+      component: observerComponent,
+      callback: callback,
+    });
+
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(
+      `Connected ${observerComponent.componentName} to ${variableName}`
+    );
+    // @@@ENDIF@@@
+  }
+
+  /**
+   * Update the value of a variable in sharedMemory and notify observers.
+   * @param {string} variableName - The name of the variable.
+   * @param {any} value - The new value of the variable.
+   */
+  update(variableName, value) {
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(`Updating ${variableName} to ${value}`);
+    // @@@ENDIF@@@
+
+    if (this.sharedMemory[variableName] !== value) {
+      this.sharedMemory[variableName] = value;
+      this.notifyObservers(variableName, value);
+    }
+  }
+
+  /**
+   * Notify all observers that the variable has changed.
+   * @param {string} variableName - The name of the variable.
+   * @param {any} value - The new value of the variable.
+   */
+  notifyObservers(variableName, value) {
+    // @@@IF NOT BUILD@@@
+    this.debugger.log(`Notifying observers of ${variableName}`);
+    // @@@ENDIF@@@
+
+    const observers = this.observers.get(variableName);
+    if (observers) {
+      for (const observer of observers) {
+        observer.callback.call(observer.component, value);
+      }
+    }
   }
 };

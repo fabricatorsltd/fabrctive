@@ -50,7 +50,6 @@ fbr.FabrIf = class extends fbr.FabrCoreComponent {
    * @param {string} variableName - The name of the variable.
    */
   observeVariable(variableName) {
-    console.log("\n\n\n\n\n\n\n\n\n\n\n\nObserving variable:", variableName);
     console.log(this.sharedMemoryHelper.getKeys());
     this.sharedMemoryHelper.connect(variableName, this, (_, newValue) => {
       this.updateTargetVisibility(variableName, newValue);

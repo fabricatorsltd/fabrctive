@@ -50,6 +50,7 @@ fbr.FabrCoreComponent = class extends fbr.FabrCore {
     // to them
     this.#initElements();
     this.#initEventListeners();
+    this.#renderElements();
   }
 
   /**

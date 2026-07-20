@@ -1,3 +1,5 @@
+> Deprecated and replaced by [rfw](https://github.com/rfwlab/rfw).
+
 <br/>
 
 <div align="center">
